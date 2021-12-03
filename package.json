@@ -1,5 +1,5 @@
 {
-  "name": "@pepperize-testing/cdk-ses-smtp-credentials",
+  "name": "@pepperize/cdk-ses-smtp-credentials",
   "description": "This projects provides a CDK construct to create ses smtp credentials for a given user. It takes a username, creates an AccessKey and generates the smtp password.",
   "repository": {
     "type": "git",

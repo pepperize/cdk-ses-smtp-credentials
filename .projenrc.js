@@ -6,7 +6,7 @@ const project = new AwsCdkConstructLibrary({
   cdkVersion: "1.134.0",
   defaultReleaseBranch: "main",
   jsiiFqn: "projen.AwsCdkConstructLibrary",
-  name: "@pepperize-testing/cdk-ses-smtp-credentials",
+  name: "@pepperize/cdk-ses-smtp-credentials",
   repositoryUrl: "https://github.com/pepperize/cdk-ses-smtp-credentials.git",
 
   /* AwsCdkConstructLibraryOptions */
