@@ -2,41 +2,41 @@
 
 ## Constructs <a name="Constructs" id="constructs"></a>
 
-### SesSmtpCredentials <a name="@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentials" id="pepperizetestingcdksessmtpcredentialssessmtpcredentials"></a>
+### SesSmtpCredentials <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials" id="pepperizecdksessmtpcredentialssessmtpcredentials"></a>
 
 This construct converts the access key to SMTP credentials.
 
-#### Initializers <a name="@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentials.Initializer" id="pepperizetestingcdksessmtpcredentialssessmtpcredentialsinitializer"></a>
+#### Initializers <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.Initializer" id="pepperizecdksessmtpcredentialssessmtpcredentialsinitializer"></a>
 
 ```typescript
-import { SesSmtpCredentials } from '@pepperize-testing/cdk-ses-smtp-credentials'
+import { SesSmtpCredentials } from '@pepperize/cdk-ses-smtp-credentials'
 
 new SesSmtpCredentials(scope: Construct, id: string, props: SesSmtpCredentialsProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#pepperizetestingcdksessmtpcredentialssessmtpcredentialsparameterscope)<span title="Required">*</span> | [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct) | *No description.* |
-| [`id`](#pepperizetestingcdksessmtpcredentialssessmtpcredentialsparameterid)<span title="Required">*</span> | `string` | *No description.* |
-| [`props`](#pepperizetestingcdksessmtpcredentialssessmtpcredentialsparameterprops)<span title="Required">*</span> | [`@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentialsProps`](#@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentialsProps) | *No description.* |
+| [`scope`](#pepperizecdksessmtpcredentialssessmtpcredentialsparameterscope)<span title="Required">*</span> | [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct) | *No description.* |
+| [`id`](#pepperizecdksessmtpcredentialssessmtpcredentialsparameterid)<span title="Required">*</span> | `string` | *No description.* |
+| [`props`](#pepperizecdksessmtpcredentialssessmtpcredentialsparameterprops)<span title="Required">*</span> | [`@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps`](#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps) | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentials.parameter.scope" id="pepperizetestingcdksessmtpcredentialssessmtpcredentialsparameterscope"></a>
+##### `scope`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.parameter.scope" id="pepperizecdksessmtpcredentialssessmtpcredentialsparameterscope"></a>
 
 - *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentials.parameter.id" id="pepperizetestingcdksessmtpcredentialssessmtpcredentialsparameterid"></a>
+##### `id`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.parameter.id" id="pepperizecdksessmtpcredentialssessmtpcredentialsparameterid"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Required</sup> <a name="@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentials.parameter.props" id="pepperizetestingcdksessmtpcredentialssessmtpcredentialsparameterprops"></a>
+##### `props`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.parameter.props" id="pepperizecdksessmtpcredentialssessmtpcredentialsparameterprops"></a>
 
-- *Type:* [`@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentialsProps`](#@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentialsProps)
+- *Type:* [`@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps`](#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps)
 
 ---
 
@@ -46,29 +46,29 @@ new SesSmtpCredentials(scope: Construct, id: string, props: SesSmtpCredentialsPr
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`credentials`](#pepperizetestingcdksessmtpcredentialssessmtpcredentialspropertycredentials)<span title="Required">*</span> | [`@pepperize-testing/cdk-ses-smtp-credentials.SmtpCredentials`](#@pepperize-testing/cdk-ses-smtp-credentials.SmtpCredentials) | *No description.* |
+| [`credentials`](#pepperizecdksessmtpcredentialssessmtpcredentialspropertycredentials)<span title="Required">*</span> | [`@pepperize/cdk-ses-smtp-credentials.SmtpCredentials`](#@pepperize/cdk-ses-smtp-credentials.SmtpCredentials) | *No description.* |
 
 ---
 
-##### `credentials`<sup>Required</sup> <a name="@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentials.property.credentials" id="pepperizetestingcdksessmtpcredentialssessmtpcredentialspropertycredentials"></a>
+##### `credentials`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.property.credentials" id="pepperizecdksessmtpcredentialssessmtpcredentialspropertycredentials"></a>
 
 ```typescript
 public readonly credentials: SmtpCredentials;
 ```
 
-- *Type:* [`@pepperize-testing/cdk-ses-smtp-credentials.SmtpCredentials`](#@pepperize-testing/cdk-ses-smtp-credentials.SmtpCredentials)
+- *Type:* [`@pepperize/cdk-ses-smtp-credentials.SmtpCredentials`](#@pepperize/cdk-ses-smtp-credentials.SmtpCredentials)
 
 ---
 
 
 ## Structs <a name="Structs" id="structs"></a>
 
-### SesSmtpCredentialsProps <a name="@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentialsProps" id="pepperizetestingcdksessmtpcredentialssessmtpcredentialsprops"></a>
+### SesSmtpCredentialsProps <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps" id="pepperizecdksessmtpcredentialssessmtpcredentialsprops"></a>
 
 #### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
 
 ```typescript
-import { SesSmtpCredentialsProps } from '@pepperize-testing/cdk-ses-smtp-credentials'
+import { SesSmtpCredentialsProps } from '@pepperize/cdk-ses-smtp-credentials'
 
 const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 ```
@@ -77,11 +77,11 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`username`](#pepperizetestingcdksessmtpcredentialssessmtpcredentialspropspropertyusername)<span title="Required">*</span> | `string` | *No description.* |
+| [`username`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyusername)<span title="Required">*</span> | `string` | *No description.* |
 
 ---
 
-##### `username`<sup>Required</sup> <a name="@pepperize-testing/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.username" id="pepperizetestingcdksessmtpcredentialssessmtpcredentialspropspropertyusername"></a>
+##### `username`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.username" id="pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyusername"></a>
 
 ```typescript
 public readonly username: string;
@@ -91,12 +91,12 @@ public readonly username: string;
 
 ---
 
-### SmtpCredentials <a name="@pepperize-testing/cdk-ses-smtp-credentials.SmtpCredentials" id="pepperizetestingcdksessmtpcredentialssmtpcredentials"></a>
+### SmtpCredentials <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials" id="pepperizecdksessmtpcredentialssmtpcredentials"></a>
 
 #### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
 
 ```typescript
-import { SmtpCredentials } from '@pepperize-testing/cdk-ses-smtp-credentials'
+import { SmtpCredentials } from '@pepperize/cdk-ses-smtp-credentials'
 
 const smtpCredentials: SmtpCredentials = { ... }
 ```
@@ -105,12 +105,12 @@ const smtpCredentials: SmtpCredentials = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`password`](#pepperizetestingcdksessmtpcredentialssmtpcredentialspropertypassword)<span title="Required">*</span> | `string` | *No description.* |
-| [`username`](#pepperizetestingcdksessmtpcredentialssmtpcredentialspropertyusername)<span title="Required">*</span> | `string` | *No description.* |
+| [`password`](#pepperizecdksessmtpcredentialssmtpcredentialspropertypassword)<span title="Required">*</span> | `string` | *No description.* |
+| [`username`](#pepperizecdksessmtpcredentialssmtpcredentialspropertyusername)<span title="Required">*</span> | `string` | *No description.* |
 
 ---
 
-##### `password`<sup>Required</sup> <a name="@pepperize-testing/cdk-ses-smtp-credentials.SmtpCredentials.property.password" id="pepperizetestingcdksessmtpcredentialssmtpcredentialspropertypassword"></a>
+##### `password`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials.property.password" id="pepperizecdksessmtpcredentialssmtpcredentialspropertypassword"></a>
 
 ```typescript
 public readonly password: string;
@@ -120,7 +120,7 @@ public readonly password: string;
 
 ---
 
-##### `username`<sup>Required</sup> <a name="@pepperize-testing/cdk-ses-smtp-credentials.SmtpCredentials.property.username" id="pepperizetestingcdksessmtpcredentialssmtpcredentialspropertyusername"></a>
+##### `username`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials.property.username" id="pepperizecdksessmtpcredentialssmtpcredentialspropertyusername"></a>
 
 ```typescript
 public readonly username: string;
