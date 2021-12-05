@@ -129,6 +129,8 @@ const project = new AwsCdkConstructLibrary({
   // projectType: ProjectType.UNKNOWN,                                              /* Which type of project this is (library/app). */
   // readme: undefined,                                                             /* The README setup. */
 
+  autoApproveUpgrades: true,
+  autoApproveOptions: { allowedUsernames: ["pflorek"], secret: "GITHUB_TOKEN" },
   depsUpgradeOptions: {
     workflowOptions: {
       secret: "PROJEN_GITHUB_TOKEN",
