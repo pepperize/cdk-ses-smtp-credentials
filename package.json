@@ -39,11 +39,11 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.134.0",
-    "@types/aws-lambda": "^8.10.85",
+    "@types/aws-lambda": "^8.10.86",
     "@types/jest": "*",
     "@types/node": "^14.17.0",
-    "@typescript-eslint/eslint-plugin": "^5.5.0",
-    "@typescript-eslint/parser": "^5.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
     "eslint": "^8.4.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-node": "^0.3.6",
@@ -52,10 +52,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.4.3",
     "jest-junit": "^12",
-    "jsii": "^1.46.0",
-    "jsii-diff": "^1.46.0",
-    "jsii-docgen": "^4.2.6",
-    "jsii-pacmak": "^1.46.0",
+    "jsii": "^1.47.0",
+    "jsii-diff": "^1.47.0",
+    "jsii-docgen": "^4.2.8",
+    "jsii-pacmak": "^1.47.0",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^11",
     "prettier": "^2.5.1",
@@ -81,7 +81,7 @@
     "@aws-cdk/core": "^1.134.0",
     "@aws-cdk/custom-resources": "^1.134.0",
     "aws-lambda": "^1.0.7",
-    "aws-sdk": "^2.1043.0"
+    "aws-sdk": "^2.1044.0"
   },
   "bundledDependencies": [
     "aws-lambda",
