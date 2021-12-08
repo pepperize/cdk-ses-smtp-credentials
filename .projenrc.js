@@ -17,6 +17,7 @@ const project = new AwsCdkConstructLibrary({
     "@aws-cdk/aws-lambda",
     "@aws-cdk/aws-lambda-nodejs",
     "@aws-cdk/aws-logs",
+    "@aws-cdk/aws-secretsmanager",
     "@aws-cdk/custom-resources",
   ] /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */,
   // cdkDependenciesAsDeps: true,                                                   /* If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). */
@@ -92,7 +93,7 @@ const project = new AwsCdkConstructLibrary({
   // copyrightPeriod: undefined,                                                    /* The copyright years to put in the LICENSE file. */
   // dependabot: true,                                                              /* Include dependabot configuration. */
   // dependabotOptions: undefined,                                                  /* Options for dependabot. */
-  gitignore: [".idea"] /* Additional entries to .gitignore. */,
+  gitignore: [".idea", "cdk.out"] /* Additional entries to .gitignore. */,
   // jest: true,                                                                    /* Setup jest unit tests. */
   // jestOptions: undefined,                                                        /* Jest options. */
   // jsiiReleaseVersion: 'latest',                                                  /* Version requirement of `jsii-release` which is used to publish modules to npm. */
@@ -130,7 +131,10 @@ const project = new AwsCdkConstructLibrary({
   // readme: undefined,                                                             /* The README setup. */
 
   autoApproveUpgrades: true,
-  autoApproveOptions: { allowedUsernames: ["pflorek"], secret: "GITHUB_TOKEN" },
+  autoApproveOptions: {
+    allowedUsernames: ["pflorek"],
+    secret: "GITHUB_TOKEN",
+  },
   depsUpgradeOptions: {
     workflowOptions: {
       secret: "PROJEN_GITHUB_TOKEN",
@@ -139,6 +143,7 @@ const project = new AwsCdkConstructLibrary({
 });
 
 project.setScript("format", "prettier --write 'src/**/*.ts' test/**/*.ts '.projenrc.js' 'README.md'");
+project.setScript("cdk", "cdk");
 
 new JsonFile(project, ".prettierrc", {
   obj: {

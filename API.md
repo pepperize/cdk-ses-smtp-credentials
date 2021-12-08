@@ -46,17 +46,17 @@ new SesSmtpCredentials(scope: Construct, id: string, props: SesSmtpCredentialsPr
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`credentials`](#pepperizecdksessmtpcredentialssessmtpcredentialspropertycredentials)<span title="Required">*</span> | [`@pepperize/cdk-ses-smtp-credentials.SmtpCredentials`](#@pepperize/cdk-ses-smtp-credentials.SmtpCredentials) | *No description.* |
+| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropertysecret)<span title="Required">*</span> | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | *No description.* |
 
 ---
 
-##### `credentials`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.property.credentials" id="pepperizecdksessmtpcredentialssessmtpcredentialspropertycredentials"></a>
+##### `secret`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.property.secret" id="pepperizecdksessmtpcredentialssessmtpcredentialspropertysecret"></a>
 
 ```typescript
-public readonly credentials: SmtpCredentials;
+public readonly secret: ISecret;
 ```
 
-- *Type:* [`@pepperize/cdk-ses-smtp-credentials.SmtpCredentials`](#@pepperize/cdk-ses-smtp-credentials.SmtpCredentials)
+- *Type:* [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret)
 
 ---
 
@@ -77,17 +77,28 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`username`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyusername)<span title="Required">*</span> | `string` | *No description.* |
+| [`user`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyuser)<span title="Required">*</span> | [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser) | *No description.* |
+| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret) | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | *No description.* |
 
 ---
 
-##### `username`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.username" id="pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyusername"></a>
+##### `user`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.user" id="pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyuser"></a>
 
 ```typescript
-public readonly username: string;
+public readonly user: IUser;
 ```
 
-- *Type:* `string`
+- *Type:* [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser)
+
+---
+
+##### `secret`<sup>Optional</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.secret" id="pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret"></a>
+
+```typescript
+public readonly secret: ISecret;
+```
+
+- *Type:* [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret)
 
 ---
 
