@@ -12,7 +12,7 @@ This projects provides a CDK construct to create ses smtp credentials for a give
 ## Example
 
 ```shell
-npm install @pepperize-testing/cdk-ses-smtp-credentials
+npm install @pepperize/cdk-ses-smtp-credentials
 ```
 
 ```typescript
