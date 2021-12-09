@@ -23,7 +23,7 @@ export class SesSmtpCredentialsProvider extends Construct {
     // https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html
     const onEvent = new NodejsFunction(this, "ses-smtp-credentials-handler", {
       runtime: Runtime.NODEJS_14_X,
-      entry: path.join(__dirname, "provider", "handler.ts"),
+      entry: path.join(__dirname, "provider", "handler.js"),
       handler: "onEvent",
       timeout: Duration.minutes(1),
       initialPolicy: [
