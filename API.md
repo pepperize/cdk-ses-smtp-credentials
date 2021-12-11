@@ -4,7 +4,7 @@
 
 ### SesSmtpCredentials <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials" id="pepperizecdksessmtpcredentialssessmtpcredentials"></a>
 
-This construct converts the access key to SMTP credentials.
+This construct creates an access key for the given user and stores the generated SMTP credentials inside a secret.
 
 #### Initializers <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.Initializer" id="pepperizecdksessmtpcredentialssessmtpcredentialsinitializer"></a>
 
