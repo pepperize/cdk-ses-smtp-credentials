@@ -4,7 +4,7 @@
 
 ### SesSmtpCredentials <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials" id="pepperizecdksessmtpcredentialssessmtpcredentials"></a>
 
-This construct converts the access key to SMTP credentials.
+This construct creates an access key for the given user and stores the generated SMTP credentials inside a secret.
 
 #### Initializers <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.Initializer" id="pepperizecdksessmtpcredentialssessmtpcredentialsinitializer"></a>
 
@@ -46,17 +46,17 @@ new SesSmtpCredentials(scope: Construct, id: string, props: SesSmtpCredentialsPr
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`credentials`](#pepperizecdksessmtpcredentialssessmtpcredentialspropertycredentials)<span title="Required">*</span> | [`@pepperize/cdk-ses-smtp-credentials.SmtpCredentials`](#@pepperize/cdk-ses-smtp-credentials.SmtpCredentials) | *No description.* |
+| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropertysecret)<span title="Required">*</span> | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | *No description.* |
 
 ---
 
-##### `credentials`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.property.credentials" id="pepperizecdksessmtpcredentialssessmtpcredentialspropertycredentials"></a>
+##### `secret`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.property.secret" id="pepperizecdksessmtpcredentialssessmtpcredentialspropertysecret"></a>
 
 ```typescript
-public readonly credentials: SmtpCredentials;
+public readonly secret: ISecret;
 ```
 
-- *Type:* [`@pepperize/cdk-ses-smtp-credentials.SmtpCredentials`](#@pepperize/cdk-ses-smtp-credentials.SmtpCredentials)
+- *Type:* [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret)
 
 ---
 
@@ -77,58 +77,58 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`username`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyusername)<span title="Required">*</span> | `string` | *No description.* |
+| [`user`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyuser)<span title="Required">*</span> | [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser) | The user for which to create an AWS Access Key and to generate the smtp password. |
+| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret) | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | Optional, an SecretsManager secret to write the AWS SES Smtp credentials to. |
 
 ---
 
-##### `username`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.username" id="pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyusername"></a>
+##### `user`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.user" id="pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyuser"></a>
 
 ```typescript
-public readonly username: string;
+public readonly user: IUser;
 ```
 
-- *Type:* `string`
+- *Type:* [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser)
+
+The user for which to create an AWS Access Key and to generate the smtp password.
 
 ---
 
-### SmtpCredentials <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials" id="pepperizecdksessmtpcredentialssmtpcredentials"></a>
-
-#### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
+##### `secret`<sup>Optional</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.secret" id="pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret"></a>
 
 ```typescript
-import { SmtpCredentials } from '@pepperize/cdk-ses-smtp-credentials'
-
-const smtpCredentials: SmtpCredentials = { ... }
+public readonly secret: ISecret;
 ```
 
-#### Properties <a name="Properties" id="properties"></a>
+- *Type:* [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret)
 
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| [`password`](#pepperizecdksessmtpcredentialssmtpcredentialspropertypassword)<span title="Required">*</span> | `string` | *No description.* |
-| [`username`](#pepperizecdksessmtpcredentialssmtpcredentialspropertyusername)<span title="Required">*</span> | `string` | *No description.* |
-
----
-
-##### `password`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials.property.password" id="pepperizecdksessmtpcredentialssmtpcredentialspropertypassword"></a>
-
-```typescript
-public readonly password: string;
-```
-
-- *Type:* `string`
-
----
-
-##### `username`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials.property.username" id="pepperizecdksessmtpcredentialssmtpcredentialspropertyusername"></a>
-
-```typescript
-public readonly username: string;
-```
-
-- *Type:* `string`
+Optional, an SecretsManager secret to write the AWS SES Smtp credentials to.
 
 ---
 
 
+
+## Enums <a name="Enums" id="enums"></a>
+
+### Credentials <a name="Credentials" id="credentials"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| [`USERNAME`](#pepperizecdksessmtpcredentialscredentialsusername) | The key of the username stored in the secretsmanager key/value json text. |
+| [`PASSWORD`](#pepperizecdksessmtpcredentialscredentialspassword) | The key of the password stored in the secretsmanager key/value json. |
+
+---
+
+#### `USERNAME` <a name="@pepperize/cdk-ses-smtp-credentials.Credentials.USERNAME" id="pepperizecdksessmtpcredentialscredentialsusername"></a>
+
+The key of the username stored in the secretsmanager key/value json text.
+
+---
+
+
+#### `PASSWORD` <a name="@pepperize/cdk-ses-smtp-credentials.Credentials.PASSWORD" id="pepperizecdksessmtpcredentialscredentialspassword"></a>
+
+The key of the password stored in the secretsmanager key/value json.
+
+---
 

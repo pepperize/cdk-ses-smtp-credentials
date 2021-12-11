@@ -861,7 +861,7 @@
     "@aws-cdk/core" "1.135.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-secretsmanager@1.135.0", "@aws-cdk/aws-secretsmanager@^1.123.0":
+"@aws-cdk/aws-secretsmanager@1.135.0", "@aws-cdk/aws-secretsmanager@^1.123.0", "@aws-cdk/aws-secretsmanager@^1.134.0":
   version "1.135.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-secretsmanager/-/aws-secretsmanager-1.135.0.tgz#5c1d83960750a05a9b2e82590d7352e3411cdd70"
   integrity sha512-TBA8fIfLAdx1mL+mLMKYJa8/dFboqrdfzXNu7mI+jK99guqFGP1I4zi8wVzdjrKaM378nIhn+95g2bVuVopD5A==

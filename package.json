@@ -30,7 +30,8 @@
     "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
     "projen": "npx projen",
-    "format": "prettier --write src/{**/,}*.ts test/{**/,}*.ts '.projenrc.js' 'README.md'"
+    "format": "prettier --write src/{**/,}*.ts test/{**/,}*.ts '.projenrc.js' 'README.md'",
+    "cdk": "cdk"
   },
   "author": {
     "name": "Patrick Florek",
@@ -71,6 +72,7 @@
     "@aws-cdk/aws-lambda": "^1.134.0",
     "@aws-cdk/aws-lambda-nodejs": "^1.134.0",
     "@aws-cdk/aws-logs": "^1.134.0",
+    "@aws-cdk/aws-secretsmanager": "^1.134.0",
     "@aws-cdk/core": "^1.134.0",
     "@aws-cdk/custom-resources": "^1.134.0",
     "constructs": "^3.2.27"
@@ -80,6 +82,7 @@
     "@aws-cdk/aws-lambda": "^1.134.0",
     "@aws-cdk/aws-lambda-nodejs": "^1.134.0",
     "@aws-cdk/aws-logs": "^1.134.0",
+    "@aws-cdk/aws-secretsmanager": "^1.134.0",
     "@aws-cdk/core": "^1.134.0",
     "@aws-cdk/custom-resources": "^1.134.0",
     "aws-lambda": "^1.0.7",

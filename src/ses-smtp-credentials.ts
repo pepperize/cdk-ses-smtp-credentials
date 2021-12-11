@@ -1,49 +1,57 @@
+import { IUser } from "@aws-cdk/aws-iam";
+import { ISecret, Secret } from "@aws-cdk/aws-secretsmanager";
 import { Construct, CustomResource, CustomResourceProps } from "@aws-cdk/core";
 import { SesSmtpCredentialsProvider } from "./ses-smtp-credentials-provider";
 
-export interface SmtpCredentials {
-  readonly username: string;
-  readonly password: string;
-}
-
 export interface SesSmtpCredentialsProps {
-  readonly username: string;
+  /**
+   * The user for which to create an AWS Access Key and to generate the smtp password.
+   */
+  readonly user: IUser;
+  /**
+   * Optional, an SecretsManager secret to write the AWS SES Smtp credentials to.
+   */
+  readonly secret?: ISecret;
 }
 
 /**
- * This construct converts the access key to SMTP credentials.
+ * This construct creates an access key for the given user and stores the generated SMTP credentials inside a secret.
  *
  * @example
  *
- * const accessKey = new CfnAccessKey(this, "ses-access-key", {
- *      userName: username,
+ * const user = User.fromUserName("ses-user-example");
+ * const credentials = new SesSmtpCredentials(this, 'SmtpCredentials', {
+ *     user: user,
  * });
- * new SmtpCredentials(this, 'SmtpCredentials', {
- *     accessKey: accessKey,
- * });
+ * // credentials.secret
  */
 export class SesSmtpCredentials extends Construct {
-  public readonly credentials: SmtpCredentials;
+  public readonly secret: ISecret;
 
   public constructor(scope: Construct, id: string, props: SesSmtpCredentialsProps) {
     super(scope, id);
 
-    const { username } = props;
+    const { user } = props;
 
-    const { serviceToken } = new SesSmtpCredentialsProvider(this, "Provider", {});
+    this.secret =
+      props.secret ||
+      new Secret(this, "Secret", {
+        description: `SES Smtp credentials (username, password) for ${user.userName}`,
+      });
 
-    // TODO: Create Secret to store SmtpCredentials
+    const { serviceToken } = new SesSmtpCredentialsProvider(this, "Provider", {
+      user: user,
+      secret: this.secret,
+    });
 
-    const credentials = new CustomResource(this, "Lambda", {
+    const customResource = new CustomResource(this, "Lambda", {
       serviceToken,
       properties: {
-        UserName: username,
+        UserName: user.userName,
+        SecretId: this.secret.secretArn,
       },
     } as CustomResourceProps);
-
-    this.credentials = {
-      username: credentials.getAttString("AccessKeyId"),
-      password: credentials.getAttString("SmtpPassword"),
-    } as SmtpCredentials; // TODO: credentials.getAttString("SecretArn"); Secret.fromCompleteArn(secretArn);
+    customResource.node.addDependency(user);
+    customResource.node.addDependency(this.secret);
   }
 }

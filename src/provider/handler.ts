@@ -1,37 +1,11 @@
-import { Buffer } from "buffer";
-import { createHmac } from "crypto";
 import {
   CloudFormationCustomResourceEvent,
   CloudFormationCustomResourceSuccessResponse,
   CloudFormationCustomResourceResponseCommon,
 } from "aws-lambda";
 import * as AWS from "aws-sdk";
-
-export const sign = (key: string[], message: string): string[] => {
-  const hmac = createHmac("sha256", Buffer.from(key.map((a) => a.charCodeAt(0)))).update(message) as any;
-
-  return hmac.digest("binary").toString().split("");
-};
-
-export const calculateSmtpPassword = (secretAccessKey: string, region: string): string => {
-  const date = "11111111";
-  const service = "ses";
-  const terminal = "aws4_request";
-  const message = "SendRawEmail";
-  const version = [0x04];
-
-  let signature = sign(`AWS4${secretAccessKey}`.split(""), date);
-  signature = sign(signature, region);
-  signature = sign(signature, service);
-  signature = sign(signature, terminal);
-  signature = sign(signature, message);
-
-  const signatureAndVersion = version.slice(); //copy of array
-
-  signature.forEach((a: string) => signatureAndVersion.push(a.charCodeAt(0)));
-
-  return Buffer.from(signatureAndVersion).toString("base64");
-};
+import { calculateSesSmtpPassword } from "./calculate-ses-smtp-password";
+import { Credentials } from "./credentials";
 
 export const onEvent = async (
   event: CloudFormationCustomResourceEvent
@@ -42,8 +16,10 @@ export const onEvent = async (
   if (requestType == "Create") {
     // Create access key
     const username = event.ResourceProperties.UserName;
+    const secretId = event.ResourceProperties.SecretId;
     const region = process.env.AWS_DEFAULT_REGION as string;
     const iam = new AWS.IAM();
+    const secretsManager = new AWS.SecretsManager();
 
     const accessKey = await iam
       .createAccessKey({
@@ -54,9 +30,18 @@ export const onEvent = async (
     const secretAccessKey = accessKey.AccessKey.SecretAccessKey;
 
     // Create ses smtp credentials
-    const smtpPassword = calculateSmtpPassword(secretAccessKey, region);
+    const smtpPassword = calculateSesSmtpPassword(secretAccessKey, region);
 
     // TODO: Update in SecretsManager
+    await secretsManager
+      .putSecretValue({
+        SecretId: secretId,
+        SecretString: JSON.stringify({
+          [Credentials.USERNAME]: username,
+          [Credentials.PASSWORD]: smtpPassword,
+        }),
+      })
+      .promise();
 
     return {
       Status: "SUCCESS",
@@ -66,8 +51,6 @@ export const onEvent = async (
       LogicalResourceId: event.LogicalResourceId,
       Data: {
         AccessKeyId: accessKeyId,
-        SecretAccessKey: secretAccessKey,
-        SmtpPassword: smtpPassword,
       },
     } as CloudFormationCustomResourceSuccessResponse;
   }
@@ -78,7 +61,7 @@ export const onEvent = async (
 
   if (requestType == "Delete") {
     console.log(
-      "No operation required, deletion of this resource is assumed to occur in conjunction with deletion of an IAM user"
+      "No operation required, deletion of this resource is assumed to occur in conjunction with deletion of an IAM User and a SecretsManager Secret"
     );
   }
 };

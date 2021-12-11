@@ -1,12 +1,16 @@
 import * as path from "path";
-import { PolicyStatement } from "@aws-cdk/aws-iam";
+import { IUser, PolicyStatement } from "@aws-cdk/aws-iam";
 import { Runtime } from "@aws-cdk/aws-lambda";
 import { NodejsFunction, NodejsFunctionProps } from "@aws-cdk/aws-lambda-nodejs";
 import { RetentionDays } from "@aws-cdk/aws-logs";
+import { ISecret } from "@aws-cdk/aws-secretsmanager";
 import { Construct, Duration } from "@aws-cdk/core";
 import { Provider } from "@aws-cdk/custom-resources";
 
-interface SesSmtpCredentialsProviderProps {}
+interface SesSmtpCredentialsProviderProps {
+  readonly user: IUser;
+  readonly secret: ISecret;
+}
 
 export class SesSmtpCredentialsProvider extends Construct {
   public readonly serviceToken: string;
@@ -14,18 +18,22 @@ export class SesSmtpCredentialsProvider extends Construct {
   constructor(scope: Construct, id: string, props: SesSmtpCredentialsProviderProps) {
     super(scope, id);
 
-    props;
+    const { secret, user } = props;
 
     // https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html
     const onEvent = new NodejsFunction(this, "ses-smtp-credentials-handler", {
       runtime: Runtime.NODEJS_14_X,
-      entry: path.join(__dirname, "provider", "index.ts"),
+      entry: path.join(__dirname, "provider", "handler.ts"),
       handler: "onEvent",
       timeout: Duration.minutes(1),
       initialPolicy: [
         new PolicyStatement({
-          resources: ["*"],
+          resources: [user.userArn],
           actions: ["iam:CreateAccessKey", "iam:DeleteAccessKey"],
+        }),
+        new PolicyStatement({
+          resources: [secret.secretArn],
+          actions: ["secretsmanager:PutSecretValue"],
         }),
       ],
     } as NodejsFunctionProps);
