@@ -102,44 +102,5 @@ public readonly secret: ISecret;
 
 ---
 
-### SmtpCredentials <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials" id="pepperizecdksessmtpcredentialssmtpcredentials"></a>
-
-#### Initializer <a name="[object Object].Initializer" id="object-objectinitializer"></a>
-
-```typescript
-import { SmtpCredentials } from '@pepperize/cdk-ses-smtp-credentials'
-
-const smtpCredentials: SmtpCredentials = { ... }
-```
-
-#### Properties <a name="Properties" id="properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| [`password`](#pepperizecdksessmtpcredentialssmtpcredentialspropertypassword)<span title="Required">*</span> | `string` | *No description.* |
-| [`username`](#pepperizecdksessmtpcredentialssmtpcredentialspropertyusername)<span title="Required">*</span> | `string` | *No description.* |
-
----
-
-##### `password`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials.property.password" id="pepperizecdksessmtpcredentialssmtpcredentialspropertypassword"></a>
-
-```typescript
-public readonly password: string;
-```
-
-- *Type:* `string`
-
----
-
-##### `username`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SmtpCredentials.property.username" id="pepperizecdksessmtpcredentialssmtpcredentialspropertyusername"></a>
-
-```typescript
-public readonly username: string;
-```
-
-- *Type:* `string`
-
----
-
 
 
