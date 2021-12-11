@@ -9,15 +9,13 @@ export interface SesSmtpCredentialsProps {
 }
 
 /**
- * This construct converts the access key to SMTP credentials.
+ * This construct creates an access key for the given user and stores the generated SMTP credentials inside a secret.
  *
  * @example
  *
- * const accessKey = new CfnAccessKey(this, "ses-access-key", {
- *      userName: username,
- * });
+ * const user = User.fromUserName("ses-user-example");
  * new SmtpCredentials(this, 'SmtpCredentials', {
- *     accessKey: accessKey,
+ *     user: user,
  * });
  */
 export class SesSmtpCredentials extends Construct {
@@ -47,5 +45,6 @@ export class SesSmtpCredentials extends Construct {
       },
     } as CustomResourceProps);
     customResource.node.addDependency(user);
+    customResource.node.addDependency(this.secret);
   }
 }

@@ -32,13 +32,15 @@ export const onEvent = async (
     const smtpPassword = calculateSesSmtpPassword(secretAccessKey, region);
 
     // TODO: Update in SecretsManager
-    await secretsManager.putSecretValue({
-      SecretId: secretId,
-      SecretString: JSON.stringify({
-        username: username,
-        password: smtpPassword,
-      }),
-    });
+    await secretsManager
+      .putSecretValue({
+        SecretId: secretId,
+        SecretString: JSON.stringify({
+          username: username,
+          password: smtpPassword,
+        }),
+      })
+      .promise();
 
     return {
       Status: "SUCCESS",
