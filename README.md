@@ -23,9 +23,8 @@ const user = new User(stack, "SesUser", {
   userName: username,
 });
 const smtpCredentials = new SesSmtpCredentials(this, "SmtpCredentials", {
-  username: username,
+  user: user,
 });
-smtpCredentials.node.addDependency(user);
 
 // returns {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
 console.log(smtpCredentials.credentials);
