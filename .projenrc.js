@@ -138,7 +138,7 @@ const project = new AwsCdkConstructLibrary({
   },
 });
 
-project.setScript("format", "prettier --write 'src/**/*.ts' test/**/*.ts '.projenrc.js' 'README.md'");
+project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts '.projenrc.js' 'README.md'");
 
 new JsonFile(project, ".prettierrc", {
   obj: {
