@@ -3,11 +3,6 @@ import { ISecret, Secret } from "@aws-cdk/aws-secretsmanager";
 import { Construct, CustomResource, CustomResourceProps } from "@aws-cdk/core";
 import { SesSmtpCredentialsProvider } from "./ses-smtp-credentials-provider";
 
-export interface SmtpCredentials {
-  readonly username: string;
-  readonly password: string;
-}
-
 export interface SesSmtpCredentialsProps {
   readonly user: IUser;
   readonly secret?: ISecret;

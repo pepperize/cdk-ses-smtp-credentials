@@ -1,4 +1,5 @@
 import { Template } from "@aws-cdk/assertions";
+import { User } from "@aws-cdk/aws-iam";
 import { App, Aspects, Stack } from "@aws-cdk/core";
 import { AwsSolutionsChecks } from "cdk-nag";
 import { SesSmtpCredentials } from "../src";
@@ -10,10 +11,13 @@ describe("SesSmtpCredentials", () => {
     // Given
     const app = new App();
     const stack = new Stack(app);
+    const user = new User(stack, "User", {
+      userName: "Micha",
+    });
 
     // Then
     new SesSmtpCredentials(stack, "SesSmtpCredentials", {
-      username: "Micha",
+      user: user,
     });
     const template = Template.fromStack(stack);
 
@@ -25,10 +29,13 @@ describe("SesSmtpCredentials", () => {
     // Given
     const app = new App();
     const stack = new Stack(app);
+    const user = new User(stack, "User", {
+      userName: "Micha",
+    });
 
     // Then
     new SesSmtpCredentials(stack, "SesSmtpCredentials", {
-      username: "Micha",
+      user: user,
     });
 
     // Then
