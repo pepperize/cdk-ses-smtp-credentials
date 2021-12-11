@@ -21,7 +21,7 @@ const project = new AwsCdkConstructLibrary({
     "@aws-cdk/custom-resources",
   ] /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */,
   // cdkDependenciesAsDeps: true,                                                   /* If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). */
-  // cdkTestDependencies: undefined,                                                /* AWS CDK modules required for testing. */
+  cdkTestDependencies: ["@aws-cdk/assertions"] /* AWS CDK modules required for testing. */,
   // cdkVersionPinning: false,                                                      /* Use pinned version instead of caret version for CDK. */
 
   /* ConstructLibraryOptions */
@@ -61,7 +61,7 @@ const project = new AwsCdkConstructLibrary({
   deps: ["aws-lambda", "aws-sdk"] /* Runtime dependencies of this module. */,
   description:
     "This projects provides a CDK construct to create ses smtp credentials for a given user. It takes a username, creates an AccessKey and generates the smtp password." /* The description is just a string that helps people understand the purpose of the package. */,
-  devDeps: ["@types/aws-lambda"] /* Build dependencies for this module. */,
+  devDeps: ["@types/aws-lambda", "cdk-nag"] /* Build dependencies for this module. */,
   // entrypoint: 'lib/index.js',                                                    /* Module entrypoint (`main` in `package.json`). */
   // homepage: undefined,                                                           /* Package's Homepage / Website. */
   keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "Secret"] /* Keywords to include in `package.json`. */,
@@ -142,7 +142,7 @@ const project = new AwsCdkConstructLibrary({
   },
 });
 
-project.setScript("format", "prettier --write 'src/**/*.ts' test/**/*.ts '.projenrc.js' 'README.md'");
+project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts '.projenrc.js' 'README.md'");
 project.setScript("cdk", "cdk");
 
 new JsonFile(project, ".prettierrc", {

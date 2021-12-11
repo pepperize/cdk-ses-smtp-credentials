@@ -6,6 +6,11 @@
       "type": "build"
     },
     {
+      "name": "@aws-cdk/assertions",
+      "version": "^1.134.0",
+      "type": "build"
+    },
+    {
       "name": "@types/aws-lambda",
       "type": "build"
     },
@@ -24,6 +29,10 @@
     },
     {
       "name": "@typescript-eslint/parser",
+      "type": "build"
+    },
+    {
+      "name": "cdk-nag",
       "type": "build"
     },
     {
