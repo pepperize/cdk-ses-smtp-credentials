@@ -4,7 +4,13 @@ import { Construct, CustomResource, CustomResourceProps } from "@aws-cdk/core";
 import { SesSmtpCredentialsProvider } from "./ses-smtp-credentials-provider";
 
 export interface SesSmtpCredentialsProps {
+  /**
+   * The user for which to create an AWS Access Key and to generate the smtp password.
+   */
   readonly user: IUser;
+  /**
+   * Optional, an SecretsManager secret to write the AWS SES Smtp credentials to.
+   */
   readonly secret?: ISecret;
 }
 
@@ -14,9 +20,10 @@ export interface SesSmtpCredentialsProps {
  * @example
  *
  * const user = User.fromUserName("ses-user-example");
- * new SmtpCredentials(this, 'SmtpCredentials', {
+ * const credentials = new SesSmtpCredentials(this, 'SmtpCredentials', {
  *     user: user,
  * });
+ * // credentials.secret
  */
 export class SesSmtpCredentials extends Construct {
   public readonly secret: ISecret;

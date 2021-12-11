@@ -77,8 +77,8 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`user`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyuser)<span title="Required">*</span> | [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser) | *No description.* |
-| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret) | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | *No description.* |
+| [`user`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyuser)<span title="Required">*</span> | [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser) | The user for which to create an AWS Access Key and to generate the smtp password. |
+| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret) | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | Optional, an SecretsManager secret to write the AWS SES Smtp credentials to. |
 
 ---
 
@@ -90,6 +90,8 @@ public readonly user: IUser;
 
 - *Type:* [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser)
 
+The user for which to create an AWS Access Key and to generate the smtp password.
+
 ---
 
 ##### `secret`<sup>Optional</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.secret" id="pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret"></a>
@@ -100,7 +102,33 @@ public readonly secret: ISecret;
 
 - *Type:* [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret)
 
+Optional, an SecretsManager secret to write the AWS SES Smtp credentials to.
+
 ---
 
 
+
+## Enums <a name="Enums" id="enums"></a>
+
+### Credentials <a name="Credentials" id="credentials"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| [`USERNAME`](#pepperizecdksessmtpcredentialscredentialsusername) | The key of the username stored in the secretsmanager key/value json text. |
+| [`PASSWORD`](#pepperizecdksessmtpcredentialscredentialspassword) | The key of the password stored in the secretsmanager key/value json. |
+
+---
+
+#### `USERNAME` <a name="@pepperize/cdk-ses-smtp-credentials.Credentials.USERNAME" id="pepperizecdksessmtpcredentialscredentialsusername"></a>
+
+The key of the username stored in the secretsmanager key/value json text.
+
+---
+
+
+#### `PASSWORD` <a name="@pepperize/cdk-ses-smtp-credentials.Credentials.PASSWORD" id="pepperizecdksessmtpcredentialscredentialspassword"></a>
+
+The key of the password stored in the secretsmanager key/value json.
+
+---
 

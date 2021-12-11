@@ -15,8 +15,11 @@ This projects provides a CDK construct to create ses smtp credentials for a give
 npm install @pepperize/cdk-ses-smtp-credentials
 ```
 
+See [API.md](https://github.com/pepperize/cdk-ses-smtp-credentials/blob/main/API.md).
+
 ```typescript
 import { User } from "@aws-cdk/aws-iam";
+import { SesSmtpCredentials } from "@pepperize/cdk-ses-smtp-credentials";
 
 const username = "ses-user";
 const user = new User(stack, "SesUser", {
@@ -26,6 +29,5 @@ const smtpCredentials = new SesSmtpCredentials(this, "SmtpCredentials", {
   user: user,
 });
 
-// returns {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
-console.log(smtpCredentials.credentials);
+// smtpCredentials.secret contains json value {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
 ```

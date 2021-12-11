@@ -5,6 +5,7 @@ import {
 } from "aws-lambda";
 import * as AWS from "aws-sdk";
 import { calculateSesSmtpPassword } from "./calculate-ses-smtp-password";
+import { Credentials } from "./credentials";
 
 export const onEvent = async (
   event: CloudFormationCustomResourceEvent
@@ -36,8 +37,8 @@ export const onEvent = async (
       .putSecretValue({
         SecretId: secretId,
         SecretString: JSON.stringify({
-          username: username,
-          password: smtpPassword,
+          [Credentials.USERNAME]: username,
+          [Credentials.PASSWORD]: smtpPassword,
         }),
       })
       .promise();
@@ -50,8 +51,6 @@ export const onEvent = async (
       LogicalResourceId: event.LogicalResourceId,
       Data: {
         AccessKeyId: accessKeyId,
-        SecretAccessKey: secretAccessKey,
-        SmtpPassword: smtpPassword,
       },
     } as CloudFormationCustomResourceSuccessResponse;
   }
@@ -62,7 +61,7 @@ export const onEvent = async (
 
   if (requestType == "Delete") {
     console.log(
-      "No operation required, deletion of this resource is assumed to occur in conjunction with deletion of an IAM user"
+      "No operation required, deletion of this resource is assumed to occur in conjunction with deletion of an IAM User and a SecretsManager Secret"
     );
   }
 };
