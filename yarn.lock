@@ -2484,10 +2484,10 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk-nag@^1.4.15:
-  version "1.4.15"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-1.4.15.tgz#8d32086b5183939ed4fae16c3a6cbc95fb5dd4fc"
-  integrity sha512-7PPBn22lh5C94E53aq6vFUHFIcnRSiImu8Uw6O7GR3cIs4wDJBG6Vh8unU4F23fcxRKkSIZ/N/TJ7l8kQnN4Wg==
+cdk-nag@^1.4.16:
+  version "1.4.16"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-1.4.16.tgz#826df888f3ecf3ccc5e49e79aa9e82a2cbbd3083"
+  integrity sha512-ADD5RCs70qSAfytFD9EYnkgu1ZArcubqa6y1eezGH6n+qOBBpUkdTvbI/GS3vWXnultcyk7bGYzOa7et/iL1fQ==
   dependencies:
     "@aws-cdk/aws-apigateway" "^1.123.0"
     "@aws-cdk/aws-apigatewayv2" "^1.123.0"
@@ -3224,9 +3224,9 @@ ecc-jsbn@~0.1.1:
     safer-buffer "^2.1.0"
 
 electron-to-chromium@^1.4.17:
-  version "1.4.26"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.26.tgz#d71b9da220543cf10614a576c3d5ebbe43d96efb"
-  integrity sha512-cA1YwlRzO6TGp7yd3+KAqh9Tt6Z4CuuKqsAJP6uF/H5MQryjAGDhMhnY5cEXo8MaRCczpzSBhMPdqRIodkbZYw==
+  version "1.4.27"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.27.tgz#bfc6e798d8a56a17d658312f4b7ae1a7ca87724f"
+  integrity sha512-uZ95szi3zUbzRDx1zx/xnsCG+2xgZyy57pDOeaeO4r8zx5Dqe8Jv1ti8cunvBwJHVI5LzPuw8umKwZb3WKYxSQ==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5109,10 +5109,10 @@ jsii-diff@^1.49.0:
     typescript "~3.9.10"
     yargs "^16.2.0"
 
-jsii-docgen@^4.2.17:
-  version "4.2.17"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.17.tgz#fc0f7ac5df6954b2b464b15ad907fc399d47ce96"
-  integrity sha512-wpmfS3ifF45xkNnyCtwniJZK+YV2gsT98C9XGqod//qJQ0zr4HwqiHRMIaSp2ojPc9wiBP3AJvXkb7GCgjvDSg==
+jsii-docgen@^4.2.18:
+  version "4.2.18"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.18.tgz#efc2e5d45afde8115c60af357dc5aef9a2373c8e"
+  integrity sha512-xta/R1IEb88zC/VzgK1RiBmWORVSFmsRrbUh6yExAjLikCC3QQ2Nm3mlg2mXcygKnWrQnKFfVxP0/MXgcFJZvQ==
   dependencies:
     "@jsii/spec" "^1.49.0"
     case "^1.6.3"
