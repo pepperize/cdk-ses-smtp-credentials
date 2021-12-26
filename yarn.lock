@@ -2484,10 +2484,10 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk-nag@^1.4.18:
-  version "1.4.18"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-1.4.18.tgz#9edcb627109ec72a81b644d6afd315c50799a4ae"
-  integrity sha512-G9nrdU3KgE9p7j7xU3ZYe5q2ueWJDJRjG71arDpkK9o3MrHx2Wk/jmq0fxnFHv7QWYm+fNxb0VazxRb+fIBhSA==
+cdk-nag@^1.4.19:
+  version "1.4.19"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-1.4.19.tgz#e0884d7a96eea68d3bf1b90a0e7ca8cd6ebe8bf2"
+  integrity sha512-TmTg+5r4aH2LZB+8+mfz/7FZBo+E5BGerdP9erT50T1NW+vlBi7zBzntp87XCs12Rf6QRbxKPtzNuq0YCbokAw==
   dependencies:
     "@aws-cdk/aws-apigateway" "^1.123.0"
     "@aws-cdk/aws-apigatewayv2" "^1.123.0"
@@ -2793,10 +2793,19 @@ conventional-changelog-config-spec@2.1.0, conventional-changelog-config-spec@^2.
   resolved "https://registry.yarnpkg.com/conventional-changelog-config-spec/-/conventional-changelog-config-spec-2.1.0.tgz#874a635287ef8b581fd8558532bf655d4fb59f2d"
   integrity sha512-IpVePh16EbbB02V+UA+HQnnPIohgXvJRxHcS5+Uwk4AT5LjzCZJm5sp/yqs5C6KZJ1jMsV4paEV13BN1pvDuxQ==
 
-conventional-changelog-conventionalcommits@4.6.1, conventional-changelog-conventionalcommits@^4.5.0:
+conventional-changelog-conventionalcommits@4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/conventional-changelog-conventionalcommits/-/conventional-changelog-conventionalcommits-4.6.1.tgz#f4c0921937050674e578dc7875f908351ccf4014"
   integrity sha512-lzWJpPZhbM1R0PIzkwzGBCnAkH5RKJzJfFQZcl/D+2lsJxAwGnDKBqn/F4C1RD31GJNn8NuKWQzAZDAVXPp2Mw==
+  dependencies:
+    compare-func "^2.0.0"
+    lodash "^4.17.15"
+    q "^1.5.1"
+
+conventional-changelog-conventionalcommits@^4.5.0:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/conventional-changelog-conventionalcommits/-/conventional-changelog-conventionalcommits-4.6.2.tgz#6debf07a894f7c7e22b950e2f872de334d5d49ed"
+  integrity sha512-fo+VhM0VtD3wdHZtrPhgvTFjAhAMUjYeQV6B5+DB/cupG1O554pJdTwrvBInq8JLHl+GucKQpZycMPye/OpgSw==
   dependencies:
     compare-func "^2.0.0"
     lodash "^4.17.15"
@@ -5109,10 +5118,10 @@ jsii-diff@^1.50.0:
     typescript "~3.9.10"
     yargs "^16.2.0"
 
-jsii-docgen@^4.2.20:
-  version "4.2.20"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.20.tgz#808d205ab9d67a3fdc60cc7da811c3eb6b187966"
-  integrity sha512-aH2A8Gru4a9J8+zGvJbRTsocljY1wdso1jQUFY0IjpWYtCB0+2as3LdJKBKohjBfY4wcVaktbYvbyhRoLlctAg==
+jsii-docgen@^4.2.21:
+  version "4.2.21"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.21.tgz#aa60244a2c14d054d80add5617289258ccd0bd8d"
+  integrity sha512-Lu/12Wf/fGBhSvFKR0j5CrzWKkO3q4Ro07uSTPgBm0OkOvPWxB1hjLyaFIJqbkJK5T+EGLeNz+p07elxjtxMfw==
   dependencies:
     "@jsii/spec" "^1.50.0"
     case "^1.6.3"
