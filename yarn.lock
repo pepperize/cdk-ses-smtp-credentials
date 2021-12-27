@@ -1845,9 +1845,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "17.0.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.4.tgz#fec0ce0526abb6062fd206d72a642811b887a111"
-  integrity sha512-6xwbrW4JJiJLgF+zNypN5wr2ykM9/jHcL7rQ8fZe2vuftggjzZeRSM4OwRc6Xk8qWjwJ99qVHo/JgOGmomWRog==
+  version "17.0.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.5.tgz#57ca67ec4e57ad9e4ef5a6bab48a15387a1c83e0"
+  integrity sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw==
 
 "@types/node@^10.17.60":
   version "10.17.60"
@@ -1855,9 +1855,9 @@
   integrity sha512-F0KIgDJfy2nA3zMLmWGKxcH2ZVEtCZXHHdOQs2gSaQ27+lNeEfGxzkIw90aXswATX7AZ33tahPbzy6KAfUreVw==
 
 "@types/node@^14.17.0":
-  version "14.18.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.2.tgz#00fe4d1686d5f6cf3a2f2e9a0eef42594d06abfc"
-  integrity sha512-fqtSN5xn/bBzDxMT77C1rJg6CsH/R49E7qsGuvdPJa20HtV5zSTuLJPNfnlyVH3wauKnkHdLggTVkOW/xP9oQg==
+  version "14.18.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.3.tgz#b3682cfd9d5542b025df13233d073cb4347f63f3"
+  integrity sha512-GtTH2crF4MtOIrrAa+jgTV9JX/PfoUCYr6MiZw7O/dkZu5b6gm5dc1nAL0jwGo4ortSBBtGyeVaxdC8X6V+pLg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -2762,9 +2762,9 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
 constructs@^3.3.69:
-  version "3.3.168"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.168.tgz#1dd69772b4c12822eb5380e614e8e3a95d94b682"
-  integrity sha512-9DwVLINNDwzZ5sbzYZ1SZNck43T4BzM4Qua0TGLTdgNZXshW+Q9/93jsKCp3cvuG6Y5ReMby84K9WsEfwiWHKw==
+  version "3.3.170"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.170.tgz#fd389f3e1668a8c8927ad1d699b312489dfc23c9"
+  integrity sha512-c5MvlBp2ft+XjQRLkjLhIL6c1DL05lqDpXzfJvbjDOv2ijJ9uSq8ZqKMIVz/t/IaPIbe/MwmcpuuhVJtmkv+ZA==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"
@@ -5118,10 +5118,10 @@ jsii-diff@^1.50.0:
     typescript "~3.9.10"
     yargs "^16.2.0"
 
-jsii-docgen@^4.2.21:
-  version "4.2.21"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.21.tgz#aa60244a2c14d054d80add5617289258ccd0bd8d"
-  integrity sha512-Lu/12Wf/fGBhSvFKR0j5CrzWKkO3q4Ro07uSTPgBm0OkOvPWxB1hjLyaFIJqbkJK5T+EGLeNz+p07elxjtxMfw==
+jsii-docgen@^4.2.22:
+  version "4.2.22"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-4.2.22.tgz#b097a72766902b3a242cca0c0836099b4d7e3c7b"
+  integrity sha512-LBQVrZGlQlx2q3d3X5HoyLOORhR2KRj99jW29FAar68j385Hf3RWBGUuSc4SlcaYiUMqdl9a4PJXbm1i5aivkQ==
   dependencies:
     "@jsii/spec" "^1.50.0"
     case "^1.6.3"
