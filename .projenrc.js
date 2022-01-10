@@ -1,4 +1,4 @@
-const { awscdk, NodePackageManager, JsonFile, javascript } = require("projen");
+const { awscdk, NodePackageManager, javascript } = require("projen");
 const project = new awscdk.AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
@@ -31,9 +31,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // compatIgnore: '.compatignore',                                                 /* Name of the ignore file for API compatibility tests. */
   // docgen: true,                                                                  /* Automatically generate API.md from jsii. */
   eslint: true /* Install eslint. */,
-  eslintOptions: {
-    prettier: true,
-  } /* Eslint options. */,
+  prettier: true,
+  prettierOptions: { settings: { printWidth: 120 } },
   // excludeTypescript: undefined,                                                  /* Accepts a list of glob patterns. */
   // publishToGo: undefined,                                                        /* Publish Go bindings to a git repository. */
   // publishToMaven: undefined,                                                     /* Publish to maven. */
@@ -143,12 +142,5 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
 project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts '.projenrc.js' 'README.md'");
 project.setScript("cdk", "cdk");
-
-new JsonFile(project, ".prettierrc", {
-  obj: {
-    printWidth: 120,
-  },
-  marker: false,
-});
 
 project.synth();
