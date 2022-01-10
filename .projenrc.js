@@ -1,4 +1,4 @@
-const { awscdk, NodePackageManager, javascript } = require("projen");
+const { awscdk, javascript } = require("projen");
 const project = new awscdk.AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
@@ -71,7 +71,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // npmDistTag: 'latest',                                                          /* Tags can be used to provide an alias instead of version numbers. */
   // npmRegistryUrl: 'https://registry.npmjs.org',                                  /* The base URL of the npm package registry. */
   // npmTaskExecution: NpmTaskExecution.PROJEN,                                     /* Determines how tasks are executed when invoked as npm scripts (yarn/npm run xyz). */
-  packageManager: NodePackageManager.YARN /* The Node Package Manager used to execute scripts. */,
+  packageManager: javascript.NodePackageManager.YARN /* The Node Package Manager used to execute scripts. */,
   // packageName: undefined,                                                        /* The "name" in package.json. */
   // peerDependencyOptions: undefined,                                              /* Options for `peerDeps`. */
   // peerDeps: [],                                                                  /* Peer dependencies for this module. */
