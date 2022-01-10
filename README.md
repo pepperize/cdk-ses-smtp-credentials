@@ -9,6 +9,32 @@
 
 This projects provides a CDK construct to create ses smtp credentials for a given user. It takes a username, creates an AccessKey and generates the smtp password.
 
+## Install
+
+### TypeScript
+
+```shell
+npm install @pepperize/cdk-ses-smtp-credentials
+```
+
+or
+
+```shell
+yarn add @pepperize/cdk-ses-smtp-credentials
+```
+
+### Python
+
+```shell
+pip install pepperize.cdk-ses-smtp-credentials
+```
+
+### C# / .Net
+
+```
+dotnet add package Pepperize.CDK.SesSmtpCredentials
+```
+
 ## Example
 
 ```shell
