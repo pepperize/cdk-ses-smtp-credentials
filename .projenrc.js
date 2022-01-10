@@ -1,6 +1,5 @@
-const { AwsCdkConstructLibrary, NodePackageManager, JsonFile, NpmAccess } = require("projen");
-
-const project = new AwsCdkConstructLibrary({
+const { awscdk, NodePackageManager, JsonFile, NpmAccess } = require("projen");
+const project = new awscdk.AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
   cdkVersion: "1.134.0",
