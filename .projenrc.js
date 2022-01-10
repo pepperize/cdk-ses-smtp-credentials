@@ -1,6 +1,5 @@
-const { AwsCdkConstructLibrary, NodePackageManager, JsonFile, NpmAccess } = require("projen");
-
-const project = new AwsCdkConstructLibrary({
+const { awscdk, javascript } = require("projen");
+const project = new awscdk.AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
   cdkVersion: "1.134.0",
@@ -32,9 +31,8 @@ const project = new AwsCdkConstructLibrary({
   // compatIgnore: '.compatignore',                                                 /* Name of the ignore file for API compatibility tests. */
   // docgen: true,                                                                  /* Automatically generate API.md from jsii. */
   eslint: true /* Install eslint. */,
-  eslintOptions: {
-    prettier: true,
-  } /* Eslint options. */,
+  prettier: true,
+  prettierOptions: { settings: { printWidth: 120 } },
   // excludeTypescript: undefined,                                                  /* Accepts a list of glob patterns. */
   // publishToGo: undefined,                                                        /* Publish Go bindings to a git repository. */
   // publishToMaven: undefined,                                                     /* Publish to maven. */
@@ -69,11 +67,11 @@ const project = new AwsCdkConstructLibrary({
   // licensed: true,                                                                /* Indicates if a license should be added. */
   // maxNodeVersion: undefined,                                                     /* Minimum node.js version to require via `engines` (inclusive). */
   // minNodeVersion: undefined,                                                     /* Minimum Node.js version to require via package.json `engines` (inclusive). */
-  npmAccess: NpmAccess.PUBLIC /* Access level of the npm package. */,
+  npmAccess: javascript.NpmAccess.PUBLIC /* Access level of the npm package. */,
   // npmDistTag: 'latest',                                                          /* Tags can be used to provide an alias instead of version numbers. */
   // npmRegistryUrl: 'https://registry.npmjs.org',                                  /* The base URL of the npm package registry. */
   // npmTaskExecution: NpmTaskExecution.PROJEN,                                     /* Determines how tasks are executed when invoked as npm scripts (yarn/npm run xyz). */
-  packageManager: NodePackageManager.YARN /* The Node Package Manager used to execute scripts. */,
+  packageManager: javascript.NodePackageManager.YARN /* The Node Package Manager used to execute scripts. */,
   // packageName: undefined,                                                        /* The "name" in package.json. */
   // peerDependencyOptions: undefined,                                              /* Options for `peerDeps`. */
   // peerDeps: [],                                                                  /* Peer dependencies for this module. */
@@ -144,12 +142,5 @@ const project = new AwsCdkConstructLibrary({
 
 project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts '.projenrc.js' 'README.md'");
 project.setScript("cdk", "cdk");
-
-new JsonFile(project, ".prettierrc", {
-  obj: {
-    printWidth: 120,
-  },
-  marker: false,
-});
 
 project.synth();
