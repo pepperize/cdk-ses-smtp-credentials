@@ -1,6 +1,7 @@
-import { IUser } from "@aws-cdk/aws-iam";
-import { ISecret, Secret } from "@aws-cdk/aws-secretsmanager";
-import { Construct, CustomResource, CustomResourceProps } from "@aws-cdk/core";
+import { CustomResource, CustomResourceProps } from "aws-cdk-lib";
+import { IUser } from "aws-cdk-lib/aws-iam";
+import { ISecret, Secret } from "aws-cdk-lib/aws-secretsmanager";
+import { Construct } from "constructs";
 import { SesSmtpCredentialsProvider } from "./ses-smtp-credentials-provider";
 
 export interface SesSmtpCredentialsProps {
