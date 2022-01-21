@@ -16,7 +16,7 @@ new SesSmtpCredentials(scope: Construct, id: string, props: SesSmtpCredentialsPr
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`scope`](#pepperizecdksessmtpcredentialssessmtpcredentialsparameterscope)<span title="Required">*</span> | [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct) | *No description.* |
+| [`scope`](#pepperizecdksessmtpcredentialssessmtpcredentialsparameterscope)<span title="Required">*</span> | [`constructs.Construct`](#constructs.Construct) | *No description.* |
 | [`id`](#pepperizecdksessmtpcredentialssessmtpcredentialsparameterid)<span title="Required">*</span> | `string` | *No description.* |
 | [`props`](#pepperizecdksessmtpcredentialssessmtpcredentialsparameterprops)<span title="Required">*</span> | [`@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps`](#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps) | *No description.* |
 
@@ -24,7 +24,7 @@ new SesSmtpCredentials(scope: Construct, id: string, props: SesSmtpCredentialsPr
 
 ##### `scope`<sup>Required</sup> <a name="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.parameter.scope" id="pepperizecdksessmtpcredentialssessmtpcredentialsparameterscope"></a>
 
-- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
+- *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
@@ -46,7 +46,7 @@ new SesSmtpCredentials(scope: Construct, id: string, props: SesSmtpCredentialsPr
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropertysecret)<span title="Required">*</span> | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | *No description.* |
+| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropertysecret)<span title="Required">*</span> | [`aws-cdk-lib.aws_secretsmanager.ISecret`](#aws-cdk-lib.aws_secretsmanager.ISecret) | *No description.* |
 
 ---
 
@@ -56,7 +56,7 @@ new SesSmtpCredentials(scope: Construct, id: string, props: SesSmtpCredentialsPr
 public readonly secret: ISecret;
 ```
 
-- *Type:* [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret)
+- *Type:* [`aws-cdk-lib.aws_secretsmanager.ISecret`](#aws-cdk-lib.aws_secretsmanager.ISecret)
 
 ---
 
@@ -77,8 +77,8 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| [`user`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyuser)<span title="Required">*</span> | [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser) | The user for which to create an AWS Access Key and to generate the smtp password. |
-| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret) | [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret) | Optional, an SecretsManager secret to write the AWS SES Smtp credentials to. |
+| [`user`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertyuser)<span title="Required">*</span> | [`aws-cdk-lib.aws_iam.IUser`](#aws-cdk-lib.aws_iam.IUser) | The user for which to create an AWS Access Key and to generate the smtp password. |
+| [`secret`](#pepperizecdksessmtpcredentialssessmtpcredentialspropspropertysecret) | [`aws-cdk-lib.aws_secretsmanager.ISecret`](#aws-cdk-lib.aws_secretsmanager.ISecret) | Optional, an SecretsManager secret to write the AWS SES Smtp credentials to. |
 
 ---
 
@@ -88,7 +88,7 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 public readonly user: IUser;
 ```
 
-- *Type:* [`@aws-cdk/aws-iam.IUser`](#@aws-cdk/aws-iam.IUser)
+- *Type:* [`aws-cdk-lib.aws_iam.IUser`](#aws-cdk-lib.aws_iam.IUser)
 
 The user for which to create an AWS Access Key and to generate the smtp password.
 
@@ -100,7 +100,7 @@ The user for which to create an AWS Access Key and to generate the smtp password
 public readonly secret: ISecret;
 ```
 
-- *Type:* [`@aws-cdk/aws-secretsmanager.ISecret`](#@aws-cdk/aws-secretsmanager.ISecret)
+- *Type:* [`aws-cdk-lib.aws_secretsmanager.ISecret`](#aws-cdk-lib.aws_secretsmanager.ISecret)
 
 Optional, an SecretsManager secret to write the AWS SES Smtp credentials to.
 

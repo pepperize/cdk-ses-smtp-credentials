@@ -1,6 +1,6 @@
-import { Template } from "@aws-cdk/assertions";
-import { User } from "@aws-cdk/aws-iam";
-import { App, Aspects, Stack } from "@aws-cdk/core";
+import { App, Aspects, Stack } from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import { User } from "aws-cdk-lib/aws-iam";
 import { AwsSolutionsChecks } from "cdk-nag";
 import { SesSmtpCredentials } from "../src";
 

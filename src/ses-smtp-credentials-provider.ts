@@ -1,11 +1,12 @@
 import * as path from "path";
-import { IUser, PolicyStatement } from "@aws-cdk/aws-iam";
-import { Runtime } from "@aws-cdk/aws-lambda";
-import { NodejsFunction, NodejsFunctionProps } from "@aws-cdk/aws-lambda-nodejs";
-import { RetentionDays } from "@aws-cdk/aws-logs";
-import { ISecret } from "@aws-cdk/aws-secretsmanager";
-import { Construct, Duration } from "@aws-cdk/core";
-import { Provider } from "@aws-cdk/custom-resources";
+import { Duration } from "aws-cdk-lib";
+import { IUser, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import { Runtime } from "aws-cdk-lib/aws-lambda";
+import { NodejsFunction, NodejsFunctionProps } from "aws-cdk-lib/aws-lambda-nodejs";
+import { RetentionDays } from "aws-cdk-lib/aws-logs";
+import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
+import { Provider } from "aws-cdk-lib/custom-resources";
+import { Construct } from "constructs";
 
 interface SesSmtpCredentialsProviderProps {
   readonly user: IUser;

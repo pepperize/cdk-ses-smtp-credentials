@@ -1,5 +1,5 @@
-import { User } from "@aws-cdk/aws-iam";
-import { App, Stack } from "@aws-cdk/core";
+import { App, Stack } from "aws-cdk-lib";
+import { User } from "aws-cdk-lib/aws-iam";
 import { SesSmtpCredentials } from "./ses-smtp-credentials";
 
 // yarn run cdk deploy --app "npx ts-node ./src/ses-smtp-credentials.integration.ts"
