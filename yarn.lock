@@ -1169,9 +1169,9 @@ aws-lambda@^1.0.7:
     watchpack "^2.0.0-beta.10"
 
 aws-sdk@^2.1060.0, aws-sdk@^2.814.0:
-  version "2.1082.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1082.0.tgz#f6e107cc1473f17292386e7b9f79a5b8bf2a3350"
-  integrity sha512-aDrUZ63O/ocuC827ursDqFQAm3jhqsJu1DvMCCFg73y+FK9pXXNHp2mwdi3UeeHvtfxISCLCjuyO3VFd/tpVfA==
+  version "2.1083.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1083.0.tgz#afdc3d99d035b84b1dc75437f7670af0078ed2ab"
+  integrity sha512-o9pOC3LrkJRKLwSumdFrNWzGAVRNPGt4EFS48/917BaFafvnOAzOG/DM8cl5yguz3wT7eylj92I4pP2TE3qZIQ==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -1419,9 +1419,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.7.1.tgz#fd3db79f7e8fd83570e776d0b2899230118f5059"
-  integrity sha512-ijrGRz5UhSTrKqY24HLJraMmlD5Jb2EW1m2YM3rMx/Qwo6hpqAPtEr2zpfR7WEoczJpPmlGVAdBOh1czt2gRKw==
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.7.4.tgz#abdf8a2747bdf9fa3b856c1b9fc0244f4c5dd185"
+  integrity sha512-lvmuQ69p00c5mW66W/+8GlT+jzKr5ssZ42rnVyWNp7HTYPz6SFCtLEImpV7ftl1VpvwMI/DkSLsZqGVWkH+aRw==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -4494,9 +4494,9 @@ npm-bundled@^1.1.1:
     npm-normalize-package-bin "^1.0.1"
 
 npm-check-updates@^12:
-  version "12.4.0"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-12.4.0.tgz#67e8e1b88551167368ec246dfd4302ce3007d83d"
-  integrity sha512-X14H74M8SVFkStmP1NDOMh0OjLB3mU2dwUeM71zyITJHkm08MASwwTcydW6YuGcNW1RUlVq1cQY2yWijv4zKUQ==
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-12.5.0.tgz#584c6d22c977f98a55988c7a662b82ea8550f474"
+  integrity sha512-nrryXO9IZdJsAIXo8LdtllrsGiTDE4IMAod7fl1jd5C38tOdZZG/crNNii4IkctxltQRmK/ziZwsMDTlhszZXg==
   dependencies:
     chalk "^4.1.2"
     cint "^8.2.1"
