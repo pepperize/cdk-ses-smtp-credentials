@@ -1,19 +1,17 @@
-import * as path from "path";
 import { Duration } from "aws-cdk-lib";
 import { IUser, PolicyStatement } from "aws-cdk-lib/aws-iam";
-import { Runtime } from "aws-cdk-lib/aws-lambda";
-import { NodejsFunction, NodejsFunctionProps } from "aws-cdk-lib/aws-lambda-nodejs";
 import { RetentionDays } from "aws-cdk-lib/aws-logs";
 import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
 import { Provider } from "aws-cdk-lib/custom-resources";
 import { Construct } from "constructs";
+import { CredentialsHandlerFunction } from "./credentials-handler-function";
 
-interface SesSmtpCredentialsProviderProps {
+export interface SesSmtpCredentialsProviderProps {
   readonly user: IUser;
   readonly secret: ISecret;
 }
 
-export class SesSmtpCredentialsProvider extends Construct {
+export class CredentialsProvider extends Construct {
   public readonly serviceToken: string;
 
   constructor(scope: Construct, id: string, props: SesSmtpCredentialsProviderProps) {
@@ -22,10 +20,7 @@ export class SesSmtpCredentialsProvider extends Construct {
     const { secret, user } = props;
 
     // https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html
-    const onEvent = new NodejsFunction(this, "ses-smtp-credentials-handler", {
-      runtime: Runtime.NODEJS_14_X,
-      entry: path.join(__dirname, "provider", "handler.ts"),
-      handler: "onEvent",
+    const onEvent = new CredentialsHandlerFunction(this, "ses-smtp-credentials-handler", {
       timeout: Duration.minutes(1),
       initialPolicy: [
         new PolicyStatement({
@@ -37,7 +32,7 @@ export class SesSmtpCredentialsProvider extends Construct {
           actions: ["secretsmanager:PutSecretValue"],
         }),
       ],
-    } as NodejsFunctionProps);
+    });
 
     const provider = new Provider(this, "ses-smtp-credentials-provider", {
       onEventHandler: onEvent,

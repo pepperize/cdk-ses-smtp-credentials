@@ -54,5 +54,8 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+/assets/
+!/src/provider/credentials-handler-function.ts
 .idea/
 *.iml
+cdk.out/

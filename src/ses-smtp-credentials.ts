@@ -2,7 +2,7 @@ import { CustomResource, CustomResourceProps } from "aws-cdk-lib";
 import { IUser } from "aws-cdk-lib/aws-iam";
 import { ISecret, Secret } from "aws-cdk-lib/aws-secretsmanager";
 import { Construct } from "constructs";
-import { SesSmtpCredentialsProvider } from "./ses-smtp-credentials-provider";
+import { CredentialsProvider } from "./provider/credentials-provider";
 
 export interface SesSmtpCredentialsProps {
   /**
@@ -40,7 +40,7 @@ export class SesSmtpCredentials extends Construct {
         description: `SES Smtp credentials (username, password) for ${user.userName}`,
       });
 
-    const { serviceToken } = new SesSmtpCredentialsProvider(this, "Provider", {
+    const { serviceToken } = new CredentialsProvider(this, "Provider", {
       user: user,
       secret: this.secret,
     });

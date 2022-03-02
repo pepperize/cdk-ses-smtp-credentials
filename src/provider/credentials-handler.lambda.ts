@@ -1,15 +1,14 @@
-import {
-  CloudFormationCustomResourceEvent,
-  CloudFormationCustomResourceSuccessResponse,
-  CloudFormationCustomResourceResponseCommon,
-} from "aws-lambda";
+import { OnEventRequest, OnEventResponse } from "aws-cdk-lib/custom-resources/lib/provider-framework/types";
 import * as AWS from "aws-sdk";
 import { calculateSesSmtpPassword } from "./calculate-ses-smtp-password";
 import { Credentials } from "./credentials";
 
-export const onEvent = async (
-  event: CloudFormationCustomResourceEvent
-): Promise<CloudFormationCustomResourceResponseCommon | any> => {
+/**
+ * The onEvent handler is invoked whenever a resource lifecycle event for an Account occurs
+ *
+ * @see https://docs.aws.amazon.com/cdk/api/v1/docs/custom-resources-readme.html#handling-lifecycle-events-onevent
+ */
+export async function handler(event: OnEventRequest): Promise<OnEventResponse | undefined> {
   const requestType = event.RequestType;
   console.log(`Request of type ${requestType} received`);
 
@@ -44,15 +43,13 @@ export const onEvent = async (
       .promise();
 
     return {
-      Status: "SUCCESS",
+      ...event,
       PhysicalResourceId: accessKeyId,
-      StackId: event.StackId,
-      RequestId: event.RequestId,
-      LogicalResourceId: event.LogicalResourceId,
       Data: {
+        ...event.ResourceProperties,
         AccessKeyId: accessKeyId,
       },
-    } as CloudFormationCustomResourceSuccessResponse;
+    };
   }
 
   if (requestType == "Update") {
@@ -64,4 +61,11 @@ export const onEvent = async (
       "No operation required, deletion of this resource is assumed to occur in conjunction with deletion of an IAM User and a SecretsManager Secret"
     );
   }
-};
+
+  return {
+    ...event,
+    Data: {
+      ...event.ResourceProperties,
+    },
+  };
+}

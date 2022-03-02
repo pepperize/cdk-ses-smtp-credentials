@@ -4,7 +4,7 @@ import { User } from "aws-cdk-lib/aws-iam";
 import { AwsSolutionsChecks } from "cdk-nag";
 import { SesSmtpCredentials } from "../src";
 
-jest.mock("../src/ses-smtp-credentials-provider.ts");
+jest.mock("../src/provider/credentials-provider.ts");
 
 describe("SesSmtpCredentials", () => {
   it("Should match snapshot", () => {

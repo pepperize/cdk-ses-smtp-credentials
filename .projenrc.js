@@ -26,7 +26,10 @@ const project = new AwsCdkConstructLibrary({
   devDeps: [
     "@pepperize/projen-awscdk-construct",
     "@types/aws-lambda",
+    "@types/sinon",
     "cdk-nag@^2.0.0",
+    "aws-sdk-mock",
+    "sinon",
   ] /* Build dependencies for this module. */,
   keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "Secret"] /* Keywords to include in `package.json`. */,
   license: "MIT" /* License's SPDX identifier. */,
@@ -44,5 +47,7 @@ const project = new AwsCdkConstructLibrary({
     },
   },
 });
+
+project.gitignore.exclude("cdk.out/");
 
 project.synth();
