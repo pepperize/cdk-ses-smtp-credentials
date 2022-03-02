@@ -4,7 +4,7 @@ import { calculateSesSmtpPassword } from "./calculate-ses-smtp-password";
 import { Credentials } from "./credentials";
 
 /**
- * The onEvent handler is invoked whenever a resource lifecycle event for an Account occurs
+ * The onEvent handler is invoked whenever a resource lifecycle event for a credentials custom-resource occurs
  *
  * @see https://docs.aws.amazon.com/cdk/api/v1/docs/custom-resources-readme.html#handling-lifecycle-events-onevent
  */
