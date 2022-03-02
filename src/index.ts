@@ -1,3 +1,2 @@
-export * from "./provider/calculate-ses-smtp-password";
-export * from "./provider/credentials";
+export * from "./provider";
 export * from "./ses-smtp-credentials";
