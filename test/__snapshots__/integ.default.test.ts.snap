@@ -40,7 +40,9 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": "cdk-hnb659fds-assets-637898683827-us-east-1",
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
           "S3Key": "ef77c54895995dbfa283b1d3aead61b8e9f5dc202ef1aabad609f700f7fe9ed2.zip",
         },
         "Description": "src/provider/credentials-handler.lambda.ts",
@@ -130,7 +132,9 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": "cdk-hnb659fds-assets-637898683827-us-east-1",
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
           "S3Key": "598fb6cff8e638be6d00a6a4d728d795cc8f563ff24122bb1ab518c1530e24d8.zip",
         },
         "Description": "AWS CDK resource provider framework - onEvent (SesSmtpCredentialsIntegrationTest/Credentials/Provider/ses-smtp-credentials-provider)",
@@ -262,7 +266,9 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": "cdk-hnb659fds-assets-637898683827-us-east-1",
+          "S3Bucket": Object {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
           "S3Key": "6c0316fef24d0df8a9a705c77052001217d864f49af386539d01df54618cd131.zip",
         },
         "Handler": "index.handler",
