@@ -849,9 +849,9 @@
   integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
 "@types/node@^12":
-  version "12.20.46"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.46.tgz#7e49dee4c54fd19584e6a9e0da5f3dc2e9136bc7"
-  integrity sha512-cPjLXj8d6anFPzFvOPxS3fvly3Shm5nTfl6g8X5smexixbuGUf7hfr21J5tX9JW+UPStp/5P5R8qrKL5IyVJ+A==
+  version "12.20.47"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.47.tgz#ca9237d51f2a2557419688511dab1c8daf475188"
+  integrity sha512-BzcaRsnFuznzOItW1WpQrDHM7plAa7GIDMZ6b5pnMbkqEtM/6WCOhvZar39oeMQP79gwvFUWjjptE7/KGcNqFg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -1227,9 +1227,9 @@ aws-sdk-mock@^5.6.2:
     traverse "^0.6.6"
 
 aws-sdk@^2.1060.0, aws-sdk@^2.814.0, aws-sdk@^2.928.0:
-  version "2.1087.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1087.0.tgz#bb00dbac5c6bf415040ad00e7c95462b34c26ddf"
-  integrity sha512-m5EERT29Fwh2cv3SaSdygeAjJBXnjSaXRRERy70bf6PQ7KgmASJouBxY11g5G7LTEPK/yfB0TGshujKh3hEtPA==
+  version "2.1088.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1088.0.tgz#e8ea761eff2b5c42aca6136c5a01fa9b8066f0a2"
+  integrity sha512-KtGJTvMPJL6QynasbSMNvz7Onc5ejebY6NzuUvgrw6sNohNJDR/3J/0e016ocQwvEq79MNK4v4EsxNi9eMELtg==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -1477,9 +1477,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.9.1.tgz#366494b5578d86290c4fc2866b036827f2870c13"
-  integrity sha512-MX87dA2r7DG2Pz/dBhQ28A32zdf8xey3QGuEOvL6tFWdDVAsHs+re7VmvHgRq6+BVXySmcGBulcMZjczI7rDcA==
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.9.4.tgz#1109ba54693f772b8b842761e4f187d703c14570"
+  integrity sha512-Nqh/M7s4U2Qm8t+YJOoqQBckVM8oofKbMcV1bfrhZFDlno4FQgAdchJwKkFT1YX2TI85xcUUW/T2nT0McD9l1w==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
