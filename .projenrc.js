@@ -50,4 +50,6 @@ const project = new AwsCdkConstructLibrary({
 
 project.gitignore.exclude("cdk.out/");
 
+project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
+
 project.synth();
