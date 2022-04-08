@@ -1,6 +1,7 @@
 import { OnEventHandler, OnEventRequest } from "aws-cdk-lib/custom-resources/lib/provider-framework/types";
 import * as SDK from "aws-sdk";
 import * as AWS from "aws-sdk-mock";
+import { PutSecretValueRequest } from "aws-sdk/clients/secretsmanager";
 import * as sinon from "sinon";
 
 describe("provider.credentials-handler.lambda", () => {
@@ -65,5 +66,15 @@ describe("provider.credentials-handler.lambda", () => {
     expect(response?.PhysicalResourceId).toEqual("access-key-id-1234");
     sinon.assert.calledOnce(createAccessKeyFake);
     sinon.assert.calledOnce(putSecretValueFake);
+    sinon.assert.calledOnceWithMatch(
+      putSecretValueFake,
+      sinon.match.has("SecretString").and(
+        sinon.match((value: PutSecretValueRequest) => {
+          const secretString = JSON.parse(value.SecretString as string);
+
+          return secretString.username == "access-key-id-1234";
+        })
+      )
+    );
   });
 });
