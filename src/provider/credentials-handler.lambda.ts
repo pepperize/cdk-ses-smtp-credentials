@@ -36,7 +36,7 @@ export async function handler(event: OnEventRequest): Promise<OnEventResponse | 
       .putSecretValue({
         SecretId: secretId,
         SecretString: JSON.stringify({
-          [Credentials.USERNAME]: username,
+          [Credentials.USERNAME]: accessKeyId,
           [Credentials.PASSWORD]: smtpPassword,
         }),
       })
