@@ -3,26 +3,16 @@ const { javascript } = require("projen");
 const project = new AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
+  license: "MIT",
+  copyrightOwner: "Pepperize UG (haftungsbeschränkt)",
   cdkVersion: "2.8.0",
-  jsiiFqn: "projen.AwsCdkConstructLibrary",
   name: "@pepperize/cdk-ses-smtp-credentials",
+  description: "Generate SES smtp credentials for a given user and store the credentials in a SecretsManager Secret.",
+  keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "SecretsManager", "Secret"],
   repositoryUrl: "https://github.com/pepperize/cdk-ses-smtp-credentials.git",
 
-  testDeps: ["@aws-cdk/assertions"] /* AWS CDK modules required for testing. */,
-  publishToNuget: {
-    dotNetNamespace: "Pepperize.CDK",
-    packageId: "Pepperize.CDK.SesSmtpCredentials",
-  } /* Publish to NuGet. */,
-  publishToPypi: {
-    distName: "pepperize.cdk-ses-smtp-credentials",
-    module: "pepperize_cdk_ses_smtp_credentials",
-  } /* Publish to pypi. */,
-
-  /* NodePackageOptions */
-  bundledDeps: ["aws-lambda", "aws-sdk"] /* List of dependencies to bundle into this module. */,
-  deps: ["aws-lambda", "aws-sdk"] /* Runtime dependencies of this module. */,
-  description:
-    "This projects provides a CDK construct to create ses smtp credentials for a given user. It takes a username, creates an AccessKey and generates the smtp password." /* The description is just a string that helps people understand the purpose of the package. */,
+  deps: ["aws-lambda", "aws-sdk"],
+  bundledDeps: ["aws-lambda", "aws-sdk"],
   devDeps: [
     "@pepperize/projen-awscdk-construct",
     "@types/aws-lambda",
@@ -30,12 +20,8 @@ const project = new AwsCdkConstructLibrary({
     "cdk-nag@^2.0.0",
     "aws-sdk-mock",
     "sinon",
-  ] /* Build dependencies for this module. */,
-  keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "Secret"] /* Keywords to include in `package.json`. */,
-  license: "MIT" /* License's SPDX identifier. */,
-  npmAccess: javascript.NpmAccess.PUBLIC /* Access level of the npm package. */,
-  copyrightOwner: "Pepperize UG (haftungsbeschränkt)" /* License copyright owner. */,
-  releaseToNpm: true /* Automatically release to npm when new versions are introduced. */,
+  ],
+
   autoApproveUpgrades: true,
   autoApproveOptions: {
     allowedUsernames: ["pflorek"],
@@ -46,10 +32,37 @@ const project = new AwsCdkConstructLibrary({
       secret: "PROJEN_GITHUB_TOKEN",
     },
   },
+
+  releaseToNpm: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
+  publishToNuget: {
+    dotNetNamespace: "Pepperize.CDK",
+    packageId: "Pepperize.CDK.SesSmtpCredentials",
+  },
+  publishToPypi: {
+    distName: "pepperize.cdk-ses-smtp-credentials",
+    module: "pepperize_cdk_ses_smtp_credentials",
+  },
+  publishToMaven: {
+    mavenEndpoint: "https://s01.oss.sonatype.org",
+    mavenGroupId: "com.pepperize",
+    mavenArtifactId: "cdk-ses-smtp-credentials",
+    javaPackage: "com.pepperize.cdk.ses_smtp_credentials",
+  },
+
+  gitpod: true,
 });
 
 project.gitignore.exclude("cdk.out/");
 
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
+
+project.gitpod.addCustomTask({
+  name: "setup",
+  init: "yarn install && npx projen build",
+  command: "npx projen watch",
+});
+
+project.gitpod.addVscodeExtensions("dbaeumer.vscode-eslint");
 
 project.synth();

@@ -1,6 +1,6 @@
 {
   "name": "@pepperize/cdk-ses-smtp-credentials",
-  "description": "This projects provides a CDK construct to create ses smtp credentials for a given user. It takes a username, creates an AccessKey and generates the smtp password.",
+  "description": "Generate SES smtp credentials for a given user and store the credentials in a SecretsManager Secret.",
   "repository": {
     "type": "git",
     "url": "https://github.com/pepperize/cdk-ses-smtp-credentials.git"
@@ -21,6 +21,7 @@
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:dotnet": "npx projen package:dotnet",
+    "package:java": "npx projen package:java",
     "package:js": "npx projen package:js",
     "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
@@ -91,6 +92,7 @@
     "Credentials",
     "SES",
     "Secret",
+    "SecretsManager",
     "Smtp",
     "cdk"
   ],
@@ -146,6 +148,13 @@
   "jsii": {
     "outdir": "dist",
     "targets": {
+      "java": {
+        "package": "com.pepperize.cdk.ses_smtp_credentials",
+        "maven": {
+          "groupId": "com.pepperize",
+          "artifactId": "cdk-ses-smtp-credentials"
+        }
+      },
       "python": {
         "distName": "pepperize.cdk-ses-smtp-credentials",
         "module": "pepperize_cdk_ses_smtp_credentials"
