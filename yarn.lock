@@ -739,9 +739,9 @@
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
 "@types/aws-lambda@^8.10.90":
-  version "8.10.98"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.98.tgz#2936975c19529011b8b5c08850d42157711c690d"
-  integrity sha512-dJ/R9qamtI2nNpxhNwPBTwsfYwbcCWsYBJxhpgGyMLCD0HxKpORcMpPpSrFP/FIceNEYfnS3R5EfjSZJmX2oJg==
+  version "8.10.99"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.99.tgz#14fb91e5ee54d517f5b3209b027edddee9900ba6"
+  integrity sha512-BLlr4HGGF9Ga5vvZumpuXuyFUIhnCZsOdjPWy/iCJi+NIYAw30jA3XC5tyVf2RfaXm5thMR2SC3DosDVIMhM5g==
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
   version "7.1.18"
@@ -1228,9 +1228,9 @@ aws-sdk-mock@^5.6.2:
     traverse "^0.6.6"
 
 aws-sdk@^2.1060.0, aws-sdk@^2.1122.0, aws-sdk@^2.814.0:
-  version "2.1150.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1150.0.tgz#6f43380837d9cd1b761b9dc51395067686a4a053"
-  integrity sha512-SNbVXNlFGNFVcztPk7iWnjtGL+Afm1nyidpvX2rEqYdap2Ow57njZJXvghQUici4Xhqe+BUuG+x1orlFjapo4g==
+  version "2.1151.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1151.0.tgz#8fcb41c3b919842a7b4e5c4cd9e124f6439b5b67"
+  integrity sha512-VvyzXAmWrX+klvwzA+9gSTY7blDnZOTl0UTKrqmFL4K7tOLieGLYTUkpUegcPxCjYgEg7JwvYolYUnUKiHa4oA==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -1509,9 +1509,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.14.27"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.14.27.tgz#e667ed5361f48cc52fe3a9e937a970e1a7192313"
-  integrity sha512-+z7Amw0+GxxN4N82oWIO1oXW5lpCzs69xEGdv4ncqeCcnu12puVZFmd2iobVp+e07Q643GWEyShAptzjnK2Z1w==
+  version "2.14.28"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.14.28.tgz#54463eca391aadd6ea720134aae61902beccabe5"
+  integrity sha512-2D9iMH7QP6CjffJTK+QPZLPA4a3lX3eK9H27JS4NMJlLGPFAJ7smcmF+xIkStGR5EvzUUXAx6ajCgT8MeSLIog==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
