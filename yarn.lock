@@ -1509,9 +1509,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.14.48"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.14.48.tgz#bbe762dae1103d5891133e836f51954ff96a4da9"
-  integrity sha512-k/kM+fGXC2RGWZgU9prcq4M6PtiS5da16mXi50Z88/ruOQReB7CmLz4EDgMuq3REYYjWGuVfuYKYkru9c39kfw==
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.15.0.tgz#40f3adc261ad8fda670050403014d9ec5e2a11a8"
+  integrity sha512-zE6XAJGG8/a6IhyLsCRGvVtG8XZdpEIl7mlLTeqiF4VSBO+hX87g+HdJ3qOdCS2lO9GtV43DmZKeWYhmiwe/3g==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -2451,9 +2451,9 @@ eslint-plugin-import@^2.25.4:
     tsconfig-paths "^3.14.1"
 
 eslint-plugin-prettier@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.1.0.tgz#1cd4b3fadf3b3cdb30b1874b55e7f93f85eb43ad"
-  integrity sha512-A3AXIEfTnq3D5qDFjWJdQ9c4BLhw/TqhSR+6+SVaoPJBAWciFEuJiNQh275OnjRrAi7yssZzuWBRw66VG2g6UA==
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.2.1.tgz#651cbb88b1dab98bfd42f017a12fa6b2d993f94b"
+  integrity sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
