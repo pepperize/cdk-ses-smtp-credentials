@@ -1228,9 +1228,9 @@ aws-sdk-mock@^5.6.2:
     traverse "^0.6.6"
 
 aws-sdk@^2.1060.0, aws-sdk@^2.1122.0, aws-sdk@^2.814.0:
-  version "2.1165.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1165.0.tgz#4da669d1e9020344cef75d961882f52a7931a379"
-  integrity sha512-2oVkSuXsLeErt+H4M2OGIz4p1LPS+QRfY2WnW4QKMndASOcvHKZTfzuY8jmc9ZnDGyguiGdT3idYU8KpNg0sGw==
+  version "2.1166.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1166.0.tgz#9bc5ceb3690d2747b941a2e2b8ebacfffb412f41"
+  integrity sha512-9CJQpMtIv2sxvwYTcMCfuCGU8t5qEppnvmo0uFFOm+1Q1uEv5sPg95wQH3Gfj4Mmv4FKWFofgTLksn0u2pDxsw==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -1509,9 +1509,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.14.48"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.14.48.tgz#bbe762dae1103d5891133e836f51954ff96a4da9"
-  integrity sha512-k/kM+fGXC2RGWZgU9prcq4M6PtiS5da16mXi50Z88/ruOQReB7CmLz4EDgMuq3REYYjWGuVfuYKYkru9c39kfw==
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.15.0.tgz#40f3adc261ad8fda670050403014d9ec5e2a11a8"
+  integrity sha512-zE6XAJGG8/a6IhyLsCRGvVtG8XZdpEIl7mlLTeqiF4VSBO+hX87g+HdJ3qOdCS2lO9GtV43DmZKeWYhmiwe/3g==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -2451,9 +2451,9 @@ eslint-plugin-import@^2.25.4:
     tsconfig-paths "^3.14.1"
 
 eslint-plugin-prettier@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.1.0.tgz#1cd4b3fadf3b3cdb30b1874b55e7f93f85eb43ad"
-  integrity sha512-A3AXIEfTnq3D5qDFjWJdQ9c4BLhw/TqhSR+6+SVaoPJBAWciFEuJiNQh275OnjRrAi7yssZzuWBRw66VG2g6UA==
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.2.1.tgz#651cbb88b1dab98bfd42f017a12fa6b2d993f94b"
+  integrity sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
