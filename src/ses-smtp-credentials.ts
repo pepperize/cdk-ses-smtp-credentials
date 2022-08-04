@@ -2,7 +2,7 @@ import { CustomResource, CustomResourceProps } from "aws-cdk-lib";
 import { IUser } from "aws-cdk-lib/aws-iam";
 import { ISecret, Secret } from "aws-cdk-lib/aws-secretsmanager";
 import { Construct } from "constructs";
-import { CredentialsProvider } from "./provider/credentials-provider";
+import { CredentialsProvider } from "./provider";
 
 export interface SesSmtpCredentialsProps {
   /**
@@ -18,13 +18,13 @@ export interface SesSmtpCredentialsProps {
 /**
  * This construct creates an access key for the given user and stores the generated SMTP credentials inside a secret.
  *
- * @example
- *
+ * ```typescript
  * const user = User.fromUserName("ses-user-example");
  * const credentials = new SesSmtpCredentials(this, 'SmtpCredentials', {
  *     user: user,
  * });
  * // credentials.secret
+ * ```
  */
 export class SesSmtpCredentials extends Construct {
   public readonly secret: ISecret;
