@@ -131,6 +131,11 @@
       "type": "build"
     },
     {
+      "name": "ts-node",
+      "version": "^10",
+      "type": "build"
+    },
+    {
       "name": "typescript",
       "type": "build"
     },

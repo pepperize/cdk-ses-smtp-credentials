@@ -1,15 +1,15 @@
-const { AwsCdkConstructLibrary } = require("@pepperize/projen-awscdk-construct");
-const { javascript } = require("projen");
+import { AwsCdkConstructLibrary } from "@pepperize/projen-awscdk-construct";
+import { javascript } from "projen";
 const project = new AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
-  license: "MIT",
-  copyrightOwner: "Pepperize UG (haftungsbeschränkt)",
   cdkVersion: "2.8.0",
   name: "@pepperize/cdk-ses-smtp-credentials",
   description: "Generate SES smtp credentials for a given user and store the credentials in a SecretsManager Secret.",
   keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "SecretsManager", "Secret"],
   repositoryUrl: "https://github.com/pepperize/cdk-ses-smtp-credentials.git",
+
+  projenrcTs: true,
 
   deps: ["aws-lambda", "aws-sdk"],
   bundledDeps: ["aws-lambda", "aws-sdk"],
@@ -33,6 +33,7 @@ const project = new AwsCdkConstructLibrary({
     },
   },
 
+  defaultReleaseBranch: "main",
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   publishToNuget: {
@@ -57,12 +58,12 @@ project.gitignore.exclude("cdk.out/");
 
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
 
-project.gitpod.addCustomTask({
+project.gitpod?.addCustomTask({
   name: "setup",
   init: "yarn install && npx projen build",
   command: "npx projen watch",
 });
 
-project.gitpod.addVscodeExtensions("dbaeumer.vscode-eslint");
+project.gitpod?.addVscodeExtensions("dbaeumer.vscode-eslint");
 
 project.synth();

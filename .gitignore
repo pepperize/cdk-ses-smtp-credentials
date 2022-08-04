@@ -59,4 +59,6 @@ tsconfig.json
 !/src/provider/credentials-handler-function.ts
 .idea/
 *.iml
+.vscode/
+!/.editorconfig
 cdk.out/
