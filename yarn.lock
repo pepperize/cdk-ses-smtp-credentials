@@ -1575,9 +1575,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.15.40"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.15.40.tgz#8bf5a919657258587fe63f1f587cc4500787ca17"
-  integrity sha512-vbBzLJ8zV8u3xI0SgXaI6O8TBSJ5RoPx1z+6J9hDn9QfJDdTO3he6ZEkUkLPZZZj+RD7oxIk5J6ghH+j/7rErw==
+  version "2.15.41"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.15.41.tgz#9e92156287f93d8262b269e240978c314ec12cff"
+  integrity sha512-FruBKM7XQNiJmSDF915mOuvOypQag5YFu8Bki+diT/8HJIsS1T3wG2NQXPEvFsyRIdPm0vbKgJXvWvMKem6GjQ==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
@@ -4237,13 +4237,32 @@ jsii-rosetta@^1.57.0:
     workerpool "^6.2.1"
     yargs "^16.2.0"
 
-jsii@1.63.2, jsii@^1.63.2:
+jsii@1.63.2:
   version "1.63.2"
   resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.63.2.tgz#6042f7d1239f939ef0df28c41e090a3c221ac8f6"
   integrity sha512-KHnsuTm4ErLiB4JNvPi/TzJuIXeqkMim95Qs9KG5M8tfDd/GHlsotwxNx9qfG2R7DdAWrH0MG+kd1wKIAl+GFw==
   dependencies:
     "@jsii/check-node" "1.63.2"
     "@jsii/spec" "^1.63.2"
+    case "^1.6.3"
+    chalk "^4"
+    fast-deep-equal "^3.1.3"
+    fs-extra "^10.1.0"
+    log4js "^6.6.1"
+    semver "^7.3.7"
+    semver-intersect "^1.4.0"
+    sort-json "^2.0.1"
+    spdx-license-list "^6.6.0"
+    typescript "~3.9.10"
+    yargs "^16.2.0"
+
+jsii@^1.63.2:
+  version "1.64.0"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.64.0.tgz#70cd2524fe215b18636d3130bd57a80d35af75f3"
+  integrity sha512-n55/2afXTlkJus721xoP+4ahAwD3uFYYTJ+I2wVh5c7JZ5BU3Rnk/VEwUP9n7btzSGSOtIPSpsVj5ifixj+N7g==
+  dependencies:
+    "@jsii/check-node" "1.64.0"
+    "@jsii/spec" "^1.64.0"
     case "^1.6.3"
     chalk "^4"
     fast-deep-equal "^3.1.3"
