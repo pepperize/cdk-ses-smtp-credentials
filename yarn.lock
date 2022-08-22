@@ -1293,9 +1293,9 @@ aws-sdk-mock@^5.6.2:
     traverse "^0.6.6"
 
 aws-sdk@^2.1060.0, aws-sdk@^2.1122.0, aws-sdk@^2.814.0:
-  version "2.1199.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1199.0.tgz#1279a2086c34232a450f032543fd43e98e3d8232"
-  integrity sha512-N51EMTCMsiVAJDSKCDTMUheLBlPZ7/c/qyCMGirdoF64/JU+gvZ/u+UqkYPhK7XE80b0GqTj676rtp9OkU1kyg==
+  version "2.1200.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1200.0.tgz#79d14b342bed68ea07629bbc06f05f5959e4d491"
+  integrity sha512-rS16H3j40ba2ZDFNxEdC5qzJ09gpQM0f71rYw47IAOlAycvOkCCAIL/6FqCPRWevmL5X/bkULvM+OG7s31oPrg==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -1575,9 +1575,9 @@ case@1.6.3, case@^1.6.3:
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
 cdk-nag@^2.0.0:
-  version "2.15.48"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.15.48.tgz#f374cc2b93196f41620991c886be54d1323ffac7"
-  integrity sha512-SD/lUHpoWTMYK7mnnB/9DWNKLb8U5PboWLGU+Cj9cHw4xIGwBiNiUxAXpIZG20McxxsS2hM9gln2uBy7IOS7dA==
+  version "2.15.51"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.15.51.tgz#a780417788925015af8087d4e60be5445cdd881a"
+  integrity sha512-of//cTcSUqQWaZcBhp8O0iQjidMDTdHKc0OsmXpchB9ydKKBCutfrSRgNCOYCm92+yuRnd6gK5nWakIUNyPPDA==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
