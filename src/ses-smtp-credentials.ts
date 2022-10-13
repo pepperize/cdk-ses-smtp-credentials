@@ -1,8 +1,9 @@
-import { CustomResource, CustomResourceProps } from "aws-cdk-lib";
+import { Annotations, CustomResource, CustomResourceProps, Stack } from "aws-cdk-lib";
 import * as iam from "aws-cdk-lib/aws-iam";
 import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager";
 import { Construct } from "constructs";
 import { CredentialsProvider } from "./provider/credentials-provider";
+import { SMTP_REGIONS } from "./provider/ses-smtp-regions";
 
 export interface SesSmtpCredentialsProps {
   /**
@@ -52,6 +53,13 @@ export class SesSmtpCredentials extends Construct {
 
   public constructor(scope: Construct, id: string, props: SesSmtpCredentialsProps) {
     super(scope, id);
+
+    const region = Stack.of(this).region;
+    if (!SMTP_REGIONS.includes(region)) {
+      Annotations.of(this).addWarning(
+        `AWS SES Smtp Endpoint is not available in region ${region}\n see https://docs.aws.amazon.com/general/latest/gr/ses.html`
+      );
+    }
 
     const user =
       props.user ??

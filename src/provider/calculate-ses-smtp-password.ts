@@ -7,6 +7,9 @@ export const sign = (key: string[], message: string): string[] => {
   return hmac.digest("binary").toString().split("");
 };
 
+/**
+ * https://docs.aws.amazon.com/ses/latest/dg/smtp-credentials.html#smtp-credentials-convert
+ */
 export const calculateSesSmtpPassword = (secretAccessKey: string, region: string): string => {
   const date = "11111111";
   const service = "ses";

@@ -115,4 +115,4 @@ console.log({
 });
 ```
 
-See [Obtaining Amazon SES SMTP credentials using the Amazon SES console](https://docs.aws.amazon.com/ses/latest/dg/smtp-credentials.html)
+See [Obtaining Amazon SES SMTP credentials by converting existing AWS credentials](https://docs.aws.amazon.com/ses/latest/dg/smtp-credentials.html#smtp-credentials-convert)
