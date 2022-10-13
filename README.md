@@ -9,7 +9,7 @@
 
 # AWS CDK Ses Smtp Credentials
 
-Generate SES smtp credentials for a given user and store the credentials in a SecretsManager Secret.
+Generate SES smtp credentials for a user and store the credentials in a SecretsManager Secret.
 
 ## Install
 
@@ -47,7 +47,7 @@ dotnet add package Pepperize.CDK.SesSmtpCredentials
 </dependency>
 ```
 
-## Example
+## Usage
 
 ```shell
 npm install @pepperize/cdk-ses-smtp-credentials
@@ -55,17 +55,60 @@ npm install @pepperize/cdk-ses-smtp-credentials
 
 See [API.md](https://github.com/pepperize/cdk-ses-smtp-credentials/blob/main/API.md).
 
+### Create AWS SES Smtp Credentials for a given user
+
+> Attaches an inline policy to the user allowing to send emails
+
 ```typescript
 import { User } from "@aws-cdk/aws-iam";
 import { SesSmtpCredentials } from "@pepperize/cdk-ses-smtp-credentials";
 
-const username = "ses-user";
 const user = new User(stack, "SesUser", {
-  userName: username,
+  userName: "ses-user",
 });
 const smtpCredentials = new SesSmtpCredentials(this, "SmtpCredentials", {
   user: user,
 });
 
 // smtpCredentials.secret contains json value {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
+```
+
+### Create AWS SES Smtp Credentials and create a new user
+
+> Attaches an inline policy to the user allowing to send emails
+
+```typescript
+import { User } from "@aws-cdk/aws-iam";
+import { SesSmtpCredentials } from "@pepperize/cdk-ses-smtp-credentials";
+
+const smtpCredentials = new SesSmtpCredentials(this, "SmtpCredentials", {
+  userName: "ses-user",
+});
+
+// smtpCredentials.secret contains json value {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
+```
+
+### Calculate the AWS SES Smtp password on your own
+
+```typescript
+import * as AWS from "aws-sdk";
+import { SesSmtpCredentials } from "@pepperize/cdk-ses-smtp-credentials";
+
+const iam = new AWS.IAM();
+const accessKey = await iam
+    .createAccessKey({
+        UserName: username,
+    })
+    .promise();
+const accessKeyId = accessKey.AccessKey.AccessKeyId;
+const secretAccessKey = accessKey.AccessKey.SecretAccessKey;
+
+const password = calculateSesSmtpPassword(secretAccessKey, "us-east-1")
+
+console.log(
+    {
+        username: accessKeyId,
+        password: password,
+    }
+);
 ```
