@@ -1,18 +1,22 @@
 import { CustomResource, CustomResourceProps } from "aws-cdk-lib";
-import { IUser } from "aws-cdk-lib/aws-iam";
-import { ISecret, Secret } from "aws-cdk-lib/aws-secretsmanager";
+import * as iam from "aws-cdk-lib/aws-iam";
+import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager";
 import { Construct } from "constructs";
-import { CredentialsProvider } from "./provider";
+import { CredentialsProvider } from "./provider/credentials-provider";
 
 export interface SesSmtpCredentialsProps {
   /**
    * The user for which to create an AWS Access Key and to generate the smtp password.
    */
-  readonly user: IUser;
+  readonly user?: iam.IUser;
+  /**
+   * The username to create a new user if no existing user is given.
+   */
+  readonly userName?: string;
   /**
    * Optional, an SecretsManager secret to write the AWS SES Smtp credentials to.
    */
-  readonly secret?: ISecret;
+  readonly secret?: secretsmanager.ISecret;
 }
 
 /**
@@ -27,26 +31,40 @@ export interface SesSmtpCredentialsProps {
  * ```
  */
 export class SesSmtpCredentials extends Construct {
-  public readonly secret: ISecret;
+  public readonly secret: secretsmanager.ISecret;
 
   public constructor(scope: Construct, id: string, props: SesSmtpCredentialsProps) {
     super(scope, id);
 
-    const { user } = props;
+    const user =
+      props.user ??
+      new iam.User(this, "User", {
+        userName: props.userName,
+      });
+
+    const policy = new iam.Policy(this, "Policy", {
+      statements: [
+        new iam.PolicyStatement({
+          // https://github.com/awsdocs/amazon-ses-developer-guide/blob/master/doc-source/sending-authorization-policies.md
+          effect: iam.Effect.ALLOW,
+          actions: ["ses:SendRawEmail"],
+          resources: ["*"],
+        }),
+      ],
+    });
+    user.attachInlinePolicy(policy);
 
     this.secret =
       props.secret ||
-      new Secret(this, "Secret", {
+      new secretsmanager.Secret(this, "Secret", {
         description: `SES Smtp credentials (username, password) for ${user.userName}`,
       });
 
-    const { serviceToken } = new CredentialsProvider(this, "Provider", {
-      user: user,
-      secret: this.secret,
-    });
+    const provider = CredentialsProvider.getOrCreate(this);
+    provider.grant(user, this.secret);
 
     const customResource = new CustomResource(this, "Lambda", {
-      serviceToken,
+      serviceToken: provider.serviceToken,
       properties: {
         UserName: user.userName,
         SecretId: this.secret.secretArn,
