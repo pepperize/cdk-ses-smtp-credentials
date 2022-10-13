@@ -73,6 +73,8 @@ const smtpCredentials = new SesSmtpCredentials(this, "SmtpCredentials", {
 // smtpCredentials.secret contains json value {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
 ```
 
+See [API Reference - SesSmtpCredentials](https://github.com/pepperize/cdk-ses-smtp-credentials/blob/main/API.md#sessmtpcredentials-)
+
 ### Create AWS SES Smtp Credentials and create a new user
 
 > Attaches an inline policy to the user allowing to send emails
@@ -88,27 +90,29 @@ const smtpCredentials = new SesSmtpCredentials(this, "SmtpCredentials", {
 // smtpCredentials.secret contains json value {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
 ```
 
+See [API Reference - SesSmtpCredentials](https://github.com/pepperize/cdk-ses-smtp-credentials/blob/main/API.md#sessmtpcredentials-)
+
 ### Calculate the AWS SES Smtp password on your own
 
 ```typescript
 import * as AWS from "aws-sdk";
-import { SesSmtpCredentials } from "@pepperize/cdk-ses-smtp-credentials";
+import { calculateSesSmtpPassword } from "@pepperize/cdk-ses-smtp-credentials";
 
 const iam = new AWS.IAM();
 const accessKey = await iam
-    .createAccessKey({
-        UserName: username,
-    })
-    .promise();
+  .createAccessKey({
+    UserName: username,
+  })
+  .promise();
 const accessKeyId = accessKey.AccessKey.AccessKeyId;
 const secretAccessKey = accessKey.AccessKey.SecretAccessKey;
 
-const password = calculateSesSmtpPassword(secretAccessKey, "us-east-1")
+const password = calculateSesSmtpPassword(secretAccessKey, "us-east-1");
 
-console.log(
-    {
-        username: accessKeyId,
-        password: password,
-    }
-);
+console.log({
+  username: accessKeyId,
+  password: password,
+});
 ```
+
+See [Obtaining Amazon SES SMTP credentials using the Amazon SES console](https://docs.aws.amazon.com/ses/latest/dg/smtp-credentials.html)

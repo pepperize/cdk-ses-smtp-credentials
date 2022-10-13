@@ -20,7 +20,7 @@ export const calculateSesSmtpPassword = (secretAccessKey: string, region: string
   signature = sign(signature, terminal);
   signature = sign(signature, message);
 
-  const signatureAndVersion = version.slice(); //copy of array
+  const signatureAndVersion = version.slice(); // copy of array
 
   signature.forEach((a: string) => signatureAndVersion.push(a.charCodeAt(0)));
 

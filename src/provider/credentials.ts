@@ -1,6 +1,6 @@
 export enum Credentials {
   /**
-   * The key of the username stored in the secretsmanager key/value json text.
+   * The key of the username stored in the secretsmanager key/value json.
    */
   USERNAME = "username",
 

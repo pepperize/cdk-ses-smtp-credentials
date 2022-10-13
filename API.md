@@ -6,12 +6,14 @@
 
 This construct creates an access key for the given user and stores the generated SMTP credentials inside a secret.
 
+Attaches an inline policy to the user allowing to send emails
+
 ```typescript
 const user = User.fromUserName("ses-user-example");
 const credentials = new SesSmtpCredentials(this, 'SmtpCredentials', {
      user: user,
 });
-// credentials.secret
+// smtpCredentials.secret contains json value {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
 ```
 
 #### Initializers <a name="Initializers" id="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.Initializer"></a>
@@ -95,7 +97,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | *No description.* |
+| <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentials.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | The secret that contains the calculated AWS SES Smtp Credentials. |
 
 ---
 
@@ -119,6 +121,20 @@ public readonly secret: ISecret;
 
 - *Type:* aws-cdk-lib.aws_secretsmanager.ISecret
 
+The secret that contains the calculated AWS SES Smtp Credentials.
+
+```typescript
+import { aws_ecs } from "aws-cdk-lib";
+
+const containerDefinitionOptions: aws_ecs.ContainerDefinitionOptions = {
+     // ...
+     secrets: {
+         MAIL_USERNAME: aws_ecs.Secret.fromSecretsManager(smtpCredentials.secret, "username"),
+         MAIL_PASSWORD: aws_ecs.Secret.fromSecretsManager(smtpCredentials.secret, "password"),
+     }
+}
+```
+
 ---
 
 
@@ -140,7 +156,7 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 | --- | --- | --- |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | Optional, an SecretsManager secret to write the AWS SES Smtp credentials to. |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.user">user</a></code> | <code>aws-cdk-lib.aws_iam.IUser</code> | The user for which to create an AWS Access Key and to generate the smtp password. |
-| <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.userName">userName</a></code> | <code>string</code> | The username to create a new user if no existing user is given. |
+| <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.userName">userName</a></code> | <code>string</code> | Optional, a username to create a new user if no existing user is given. |
 
 ---
 
@@ -166,6 +182,8 @@ public readonly user: IUser;
 
 The user for which to create an AWS Access Key and to generate the smtp password.
 
+If omitted a user will be created.
+
 ---
 
 ##### `userName`<sup>Optional</sup> <a name="userName" id="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.userName"></a>
@@ -176,7 +194,7 @@ public readonly userName: string;
 
 - *Type:* string
 
-The username to create a new user if no existing user is given.
+Optional, a username to create a new user if no existing user is given.
 
 ---
 
@@ -190,14 +208,14 @@ The username to create a new user if no existing user is given.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@pepperize/cdk-ses-smtp-credentials.Credentials.USERNAME">USERNAME</a></code> | The key of the username stored in the secretsmanager key/value json text. |
+| <code><a href="#@pepperize/cdk-ses-smtp-credentials.Credentials.USERNAME">USERNAME</a></code> | The key of the username stored in the secretsmanager key/value json. |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.Credentials.PASSWORD">PASSWORD</a></code> | The key of the password stored in the secretsmanager key/value json. |
 
 ---
 
 ##### `USERNAME` <a name="USERNAME" id="@pepperize/cdk-ses-smtp-credentials.Credentials.USERNAME"></a>
 
-The key of the username stored in the secretsmanager key/value json text.
+The key of the username stored in the secretsmanager key/value json.
 
 ---
 

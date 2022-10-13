@@ -6,11 +6,11 @@ import { CredentialsProvider } from "./provider/credentials-provider";
 
 export interface SesSmtpCredentialsProps {
   /**
-   * The user for which to create an AWS Access Key and to generate the smtp password.
+   * The user for which to create an AWS Access Key and to generate the smtp password. If omitted a user will be created.
    */
   readonly user?: iam.IUser;
   /**
-   * The username to create a new user if no existing user is given.
+   * Optional, a username to create a new user if no existing user is given.
    */
   readonly userName?: string;
   /**
@@ -22,15 +22,32 @@ export interface SesSmtpCredentialsProps {
 /**
  * This construct creates an access key for the given user and stores the generated SMTP credentials inside a secret.
  *
+ * Attaches an inline policy to the user allowing to send emails
+ *
  * ```typescript
  * const user = User.fromUserName("ses-user-example");
  * const credentials = new SesSmtpCredentials(this, 'SmtpCredentials', {
  *     user: user,
  * });
- * // credentials.secret
+ * // smtpCredentials.secret contains json value {username: "<the generated access key id>", password: "<the calculated ses smtp password>"}
  * ```
  */
 export class SesSmtpCredentials extends Construct {
+  /**
+   * The secret that contains the calculated AWS SES Smtp Credentials.
+   *
+   * ```typescript
+   * import { aws_ecs } from "aws-cdk-lib";
+   *
+   * const containerDefinitionOptions: aws_ecs.ContainerDefinitionOptions = {
+   *     // ...
+   *     secrets: {
+   *         MAIL_USERNAME: aws_ecs.Secret.fromSecretsManager(smtpCredentials.secret, "username"),
+   *         MAIL_PASSWORD: aws_ecs.Secret.fromSecretsManager(smtpCredentials.secret, "password"),
+   *     }
+   * }
+   * ```
+   */
   public readonly secret: secretsmanager.ISecret;
 
   public constructor(scope: Construct, id: string, props: SesSmtpCredentialsProps) {
@@ -57,7 +74,7 @@ export class SesSmtpCredentials extends Construct {
     this.secret =
       props.secret ||
       new secretsmanager.Secret(this, "Secret", {
-        description: `SES Smtp credentials (username, password) for ${user.userName}`,
+        description: `SES Smtp Credentials (username, password) for ${user.userName}`,
       });
 
     const provider = CredentialsProvider.getOrCreate(this);
