@@ -11,13 +11,14 @@ const project = new AwsCdkConstructLibrary({
 
   projenrcTs: true,
 
-  deps: ["aws-lambda", "aws-sdk"],
-  bundledDeps: ["aws-lambda", "aws-sdk"],
+  deps: [],
+  bundledDeps: [],
   devDeps: [
     "@pepperize/projen-awscdk-construct",
     "@types/aws-lambda",
     "@types/sinon",
-    "cdk-nag@^2.0.0",
+    "aws-lambda",
+    "aws-sdk",
     "aws-sdk-mock",
     "sinon",
   ],
