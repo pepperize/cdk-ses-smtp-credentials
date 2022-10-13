@@ -3,10 +3,10 @@ import { javascript } from "projen";
 const project = new AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
-  cdkVersion: "2.8.0",
+  cdkVersion: "2.37.1",
   name: "@pepperize/cdk-ses-smtp-credentials",
   description: "Generate SES smtp credentials for a given user and store the credentials in a SecretsManager Secret.",
-  keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "SecretsManager", "Secret"],
+  keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "SecretsManager", "Secret", "Utilities"],
   repositoryUrl: "https://github.com/pepperize/cdk-ses-smtp-credentials.git",
 
   projenrcTs: true,
@@ -22,17 +22,6 @@ const project = new AwsCdkConstructLibrary({
     "aws-sdk-mock",
     "sinon",
   ],
-
-  autoApproveUpgrades: true,
-  autoApproveOptions: {
-    allowedUsernames: ["pflorek"],
-    secret: "GITHUB_TOKEN",
-  },
-  depsUpgradeOptions: {
-    workflowOptions: {
-      secret: "PROJEN_GITHUB_TOKEN",
-    },
-  },
 
   defaultReleaseBranch: "main",
   releaseToNpm: true,
