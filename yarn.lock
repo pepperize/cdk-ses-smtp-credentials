@@ -1253,9 +1253,9 @@ aws-sdk-mock@^5.6.2:
     traverse "^0.6.6"
 
 aws-sdk@^2.1231.0, aws-sdk@^2.814.0:
-  version "2.1290.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1290.0.tgz#cb4e56656cb4ad08a645cd016380df4b324f8261"
-  integrity sha512-qRrXLgK4FpkdxeagjrHuhtEEvYrvRbddTBg1I7KBuMCIhXHzSS3nEUmdZjdyMuQJEvt0BCJjwVkNh8e/5TauDQ==
+  version "2.1291.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1291.0.tgz#315e64dead4a1222726a55348bb2aa332a1917d4"
+  integrity sha512-iM82Md2Wb29MZ72BpNF4YeIHtkJTyw+JMGXJG48Dwois2Rq7rLcriX6NN/4Fx4b5EEtUkwAO/wJc+NTHI7QeJw==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -4542,9 +4542,9 @@ prettier-linter-helpers@^1.0.0:
     fast-diff "^1.1.2"
 
 prettier@^2.5.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.1.tgz#4e1fd11c34e2421bc1da9aea9bd8127cd0a35efc"
-  integrity sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.2.tgz#c4ea1b5b454d7c4b59966db2e06ed7eec5dfd160"
+  integrity sha512-BtRV9BcncDyI2tsuS19zzhzoxD8Dh8LiCx7j7tHzrkz8GFXAexeWFdi22mjE1d16dftH2qNaytVxqiRTGlMfpw==
 
 pretty-format@^27.0.0, pretty-format@^27.5.1:
   version "27.5.1"
