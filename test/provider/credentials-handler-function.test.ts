@@ -1,7 +1,7 @@
 import { OnEventHandler, OnEventRequest } from "aws-cdk-lib/custom-resources/lib/provider-framework/types";
 import * as SDK from "aws-sdk";
-import * as AWS from "aws-sdk-mock";
 import { PutSecretValueRequest } from "aws-sdk/clients/secretsmanager";
+import * as AWS from "aws-sdk-mock";
 import * as sinon from "sinon";
 
 describe("provider.credentials-handler.lambda", () => {
