@@ -1237,9 +1237,9 @@ aws-sdk-mock@^5.6.2:
     traverse "^0.6.6"
 
 aws-sdk@^2.1231.0, aws-sdk@^2.814.0:
-  version "2.1304.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1304.0.tgz#92a57d96394185fbeb790a85e71c47154c1cd150"
-  integrity sha512-9mf2uafa2M9yFC5IlMe85TIc7OUo1HSProCQWzpRmAAYhcSwmfbRyt02Wtr5YSVvJJPmcSgcyI92snsQR1c3nw==
+  version "2.1305.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1305.0.tgz#787dc700f137fb2518995736b4de4fe5bd0c17d4"
+  integrity sha512-DbCZX0eKg/ZDZuTRsirWalx/9fOizIG/PocNWggwwSpmx9rB+MDSa2UX9KEt7vxAwesJotkKAY7ndGGLnUYMTA==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -2351,9 +2351,9 @@ eslint-visitor-keys@^3.3.0:
   integrity sha512-mQ+suqKJVyeuwGYHAdjMFqjCyfl8+Ldnxuyp3ldiMBFKkvytrXUZWaiPCEav8qDHKty44bD+qV1IP4T+w+xXRA==
 
 eslint@^8:
-  version "8.32.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.32.0.tgz#d9690056bb6f1a302bd991e7090f5b68fbaea861"
-  integrity sha512-nETVXpnthqKPFyuY2FNjz/bEd6nbosRgKbkgS/y1C7LJop96gYHWpiguLecMHQ2XCPxn77DS0P+68WzG6vkZSQ==
+  version "8.33.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.33.0.tgz#02f110f32998cb598c6461f24f4d306e41ca33d7"
+  integrity sha512-WjOpFQgKK8VrCnAtl8We0SUOy/oVZ5NHykyMiagV1M9r8IFpIJX7DduK6n1mpfhlG7T1NLWm2SuD8QB7KFySaA==
   dependencies:
     "@eslint/eslintrc" "^1.4.1"
     "@humanwhocodes/config-array" "^0.11.8"
@@ -3821,14 +3821,14 @@ jsesc@^2.5.1:
   integrity sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==
 
 jsii-diff@^1.63.2:
-  version "1.73.0"
-  resolved "https://registry.yarnpkg.com/jsii-diff/-/jsii-diff-1.73.0.tgz#378432f9b2b4c87790d1a530bf60596b8a712aee"
-  integrity sha512-pbMxeP1wFJwpA9Kki+IoFzVz/I81dHIW0yXyKOwTX7SrmoJ8LRlGJDb3Ks5H2MDdf2YL/6QVl0sgU6sC9/Ssvw==
+  version "1.74.0"
+  resolved "https://registry.yarnpkg.com/jsii-diff/-/jsii-diff-1.74.0.tgz#d7e6f94d4c34a74604a74ba204bc6effba7a13a0"
+  integrity sha512-lMKRnfaJLQywsudp4PIgBDLFsBFSWVxTrvVa2xlNuIOsU2CP87ljX7SonzPNvnwJccBN4nJ1cpJCGTtGNo6xKQ==
   dependencies:
-    "@jsii/check-node" "1.73.0"
-    "@jsii/spec" "^1.73.0"
+    "@jsii/check-node" "1.74.0"
+    "@jsii/spec" "^1.74.0"
     fs-extra "^10.1.0"
-    jsii-reflect "^1.73.0"
+    jsii-reflect "^1.74.0"
     log4js "^6.7.1"
     yargs "^16.2.0"
 
@@ -3866,7 +3866,7 @@ jsii-pacmak@^1.69.0:
     xmlbuilder "^15.1.1"
     yargs "^16.2.0"
 
-jsii-reflect@^1.57.0, jsii-reflect@^1.73.0, jsii-reflect@^1.74.0:
+jsii-reflect@^1.57.0, jsii-reflect@^1.74.0:
   version "1.74.0"
   resolved "https://registry.yarnpkg.com/jsii-reflect/-/jsii-reflect-1.74.0.tgz#ddc1e9780dd120337d901a4a4b72ca5a1492a2c3"
   integrity sha512-/yt04q5pfnwZZtiHkXxg3svJYI3U77uhbCE/sdcVDoCsRLJhpsI2k+7Py0wls+YXhs6V50jIesw8/YAatfGveg==
