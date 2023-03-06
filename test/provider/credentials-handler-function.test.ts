@@ -1,4 +1,4 @@
-import { OnEventHandler, OnEventRequest } from "aws-cdk-lib/custom-resources/lib/provider-framework/types";
+import { CdkCustomResourceEvent as OnEventRequest, CdkCustomResourceResponse as OnEventResponse } from "aws-lambda";
 import * as SDK from "aws-sdk";
 import { PutSecretValueRequest } from "aws-sdk/clients/secretsmanager";
 import * as AWS from "aws-sdk-mock";
@@ -9,7 +9,7 @@ describe("provider.credentials-handler.lambda", () => {
   console.log = jest.fn();
   process.env.AWS_DEFAULT_REGION = "us-east-1";
 
-  let handler: OnEventHandler;
+  let handler: (event: OnEventRequest) => Promise<OnEventResponse | undefined>;
   beforeEach(async () => {
     //AWS.setSDKInstance(SDK);
     AWS.setSDK(require.resolve("aws-sdk"));

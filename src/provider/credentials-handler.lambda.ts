@@ -1,4 +1,4 @@
-import { OnEventRequest, OnEventResponse } from "aws-cdk-lib/custom-resources/lib/provider-framework/types";
+import { CdkCustomResourceEvent as OnEventRequest, CdkCustomResourceResponse as OnEventResponse } from "aws-lambda";
 import * as AWS from "aws-sdk";
 import { calculateSesSmtpPassword } from "./calculate-ses-smtp-password";
 import { Credentials } from "./credentials";

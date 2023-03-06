@@ -10,7 +10,7 @@ export class CredentialsProvider extends Construct {
   /**
    * Retrieve CredentialsProvider as stack singleton resource.
    *
-   * @see https://github.com/aws/aws-cdk/issues/5023
+   * https://github.com/aws/aws-cdk/issues/5023
    */
   public static getOrCreate(scope: Construct): CredentialsProvider {
     const stack = Stack.of(scope);
