@@ -12,6 +12,8 @@
 
 Generate SES smtp credentials for a user and store the credentials in a SecretsManager Secret.
 
+[![View on Construct Hub](https://constructs.dev/badge?package=%40pepperize%2Fcdk-ses-smtp-credentials)](https://constructs.dev/packages/@pepperize/cdk-ses-smtp-credentials)
+
 ## Install
 
 ### TypeScript
