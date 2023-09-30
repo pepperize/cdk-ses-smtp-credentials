@@ -58,7 +58,7 @@ export async function handler(event: OnEventRequest): Promise<OnEventResponse | 
 
   if (requestType == "Delete") {
     console.log(
-      "No operation required, deletion of this resource is assumed to occur in conjunction with deletion of an IAM User and a SecretsManager Secret"
+      "No operation required, deletion of this resource is assumed to occur in conjunction with deletion of an IAM User and a SecretsManager Secret",
     );
   }
 

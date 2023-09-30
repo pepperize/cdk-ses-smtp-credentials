@@ -57,7 +57,7 @@ export class SesSmtpCredentials extends Construct {
     const region = Stack.of(this).region;
     if (!SMTP_REGIONS.includes(region)) {
       Annotations.of(this).addWarning(
-        `AWS SES Smtp Endpoint is not available in region ${region}\n see https://docs.aws.amazon.com/general/latest/gr/ses.html`
+        `AWS SES Smtp Endpoint is not available in region ${region}\n see https://docs.aws.amazon.com/general/latest/gr/ses.html`,
       );
     }
 

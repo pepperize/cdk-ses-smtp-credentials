@@ -1,5 +1,5 @@
 import { AwsCdkConstructLibrary } from "@pepperize/projen-awscdk-construct";
-import { javascript } from "projen";
+import { awscdk, javascript } from "projen";
 const project = new AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
@@ -10,6 +10,10 @@ const project = new AwsCdkConstructLibrary({
   repositoryUrl: "https://github.com/pepperize/cdk-ses-smtp-credentials.git",
 
   projenrcTs: true,
+
+  lambdaOptions: {
+    runtime: awscdk.LambdaRuntime.NODEJS_18_X,
+  },
 
   deps: [],
   bundledDeps: [],

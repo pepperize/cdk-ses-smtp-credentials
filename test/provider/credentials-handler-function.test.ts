@@ -73,8 +73,8 @@ describe("provider.credentials-handler.lambda", () => {
           const secretString = JSON.parse(value.SecretString as string);
 
           return secretString.username == "access-key-id-1234";
-        })
-      )
+        }),
+      ),
     );
   });
 });
