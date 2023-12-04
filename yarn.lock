@@ -1601,9 +1601,9 @@ aws-sdk-mock@^5.8.0:
     traverse "^0.6.6"
 
 aws-sdk@^2.1231.0, aws-sdk@^2.1467.0, aws-sdk@^2.814.0:
-  version "2.1510.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1510.0.tgz#c190ccda07ae72bc1edcd7a6e9c28e48c44ebd3e"
-  integrity sha512-XQj3QINBNseA5G9Vaa/iihNz3HCrzeyhxrOUjuH0AVxYqa5Q4cxaQhrWiAiUndtO2F70nfukEYe4cCUoTalUoQ==
+  version "2.1511.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1511.0.tgz#9a8acfe2006c5acd364790f73220d9015d8349b8"
+  integrity sha512-LikcMeIzA1fu+j8qElVmPDpWBFsMzd8pwQoo33xXhIwtWaMoaBMI5vGGz/cvdn3LnjkRcEntWZeE8haULsy+bA==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -2574,9 +2574,9 @@ escodegen@^2.0.0:
     source-map "~0.6.1"
 
 eslint-config-prettier@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-9.0.0.tgz#eb25485946dd0c66cd216a46232dc05451518d1f"
-  integrity sha512-IcJsTkJae2S35pRsRAwoCE+925rJJStOdkKnLVgtE+tEpqU0EVVM7OqrwxqgptKdX29NUwC82I5pXsGFIgSevw==
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-9.1.0.tgz#31af3d94578645966c082fcb71a5846d3c94867f"
+  integrity sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==
 
 eslint-import-resolver-node@^0.3.9:
   version "0.3.9"
