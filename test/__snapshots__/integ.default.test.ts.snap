@@ -167,7 +167,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "bccb41289b61221c67125a65965f764e33dba3227565cd176d91e8b3c954fb25.zip",
+          "S3Key": "113b8668b8c145501d6f847199dc0f84b63b3927095e3ec941565385b780fbb0.zip",
         },
         "Description": "src/provider/credentials-handler.lambda.ts",
         "Environment": Object {
