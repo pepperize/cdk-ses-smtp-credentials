@@ -16,6 +16,8 @@ export async function handler(event: OnEventRequest): Promise<OnEventResponse | 
     // Create access key
     const username = event.ResourceProperties.UserName;
     const secretId = event.ResourceProperties.SecretId;
+    const userNameSecretKey = event.ResourceProperties.UserNameSecretKey;
+    const passwordSecretKey = event.ResourceProperties.PasswordSecretKey;
     const region = process.env.AWS_DEFAULT_REGION as string;
     const iam = new AWS.IAM();
     const secretsManager = new AWS.SecretsManager();
@@ -36,8 +38,8 @@ export async function handler(event: OnEventRequest): Promise<OnEventResponse | 
       .putSecretValue({
         SecretId: secretId,
         SecretString: JSON.stringify({
-          [Credentials.USERNAME]: accessKeyId,
-          [Credentials.PASSWORD]: smtpPassword,
+          [userNameSecretKey || Credentials.USERNAME]: accessKeyId,
+          [passwordSecretKey || Credentials.PASSWORD]: smtpPassword,
         }),
       })
       .promise();

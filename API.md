@@ -276,9 +276,23 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.passwordSecretKey">passwordSecretKey</a></code> | <code>string</code> | Optional, the key name to use in the secret to write the password to (defaults to Credentials.PASSWORD). |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | Optional, an SecretsManager secret to write the AWS SES Smtp credentials to. |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.user">user</a></code> | <code>aws-cdk-lib.aws_iam.IUser</code> | The user for which to create an AWS Access Key and to generate the smtp password. |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.userName">userName</a></code> | <code>string</code> | Optional, a username to create a new user if no existing user is given. |
+| <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.userNameSecretKey">userNameSecretKey</a></code> | <code>string</code> | Optional, the key name to use in the secret to write the username to (defaults to Credentials.USERNAME). |
+
+---
+
+##### `passwordSecretKey`<sup>Optional</sup> <a name="passwordSecretKey" id="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.passwordSecretKey"></a>
+
+```typescript
+public readonly passwordSecretKey: string;
+```
+
+- *Type:* string
+
+Optional, the key name to use in the secret to write the password to (defaults to Credentials.PASSWORD).
 
 ---
 
@@ -317,6 +331,18 @@ public readonly userName: string;
 - *Type:* string
 
 Optional, a username to create a new user if no existing user is given.
+
+---
+
+##### `userNameSecretKey`<sup>Optional</sup> <a name="userNameSecretKey" id="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.userNameSecretKey"></a>
+
+```typescript
+public readonly userNameSecretKey: string;
+```
+
+- *Type:* string
+
+Optional, the key name to use in the secret to write the username to (defaults to Credentials.USERNAME).
 
 ---
 
