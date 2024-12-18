@@ -18,6 +18,14 @@ export interface SesSmtpCredentialsProps {
    * Optional, an SecretsManager secret to write the AWS SES Smtp credentials to.
    */
   readonly secret?: secretsmanager.ISecret;
+  /**
+   * Optional, the key name to use in the secret to write the username to (defaults to Credentials.USERNAME)
+   */
+  readonly userNameSecretKey?: string;
+  /**
+   * Optional, the key name to use in the secret to write the password to (defaults to Credentials.PASSWORD)
+   */
+  readonly passwordSecretKey?: string;
 }
 
 /**
@@ -93,6 +101,8 @@ export class SesSmtpCredentials extends Construct {
       properties: {
         UserName: user.userName,
         SecretId: this.secret.secretArn,
+        UserNameSecretKey: props.userNameSecretKey,
+        PasswordSecretKey: props.passwordSecretKey,
       },
     } as CustomResourceProps);
     customResource.node.addDependency(user);
