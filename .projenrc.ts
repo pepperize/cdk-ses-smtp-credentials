@@ -3,7 +3,7 @@ import { awscdk, javascript } from "projen";
 const project = new AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
-  cdkVersion: "2.37.1",
+  cdkVersion: "2.173.2",
   name: "@pepperize/cdk-ses-smtp-credentials",
   description: "Generate SES smtp credentials for a given user and store the credentials in a SecretsManager Secret.",
   keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "SecretsManager", "Secret", "Utilities"],
@@ -12,13 +12,13 @@ const project = new AwsCdkConstructLibrary({
   projenrcTs: true,
 
   lambdaOptions: {
-    runtime: awscdk.LambdaRuntime.NODEJS_18_X,
+    runtime: awscdk.LambdaRuntime.NODEJS_22_X,
   },
 
   deps: [],
   bundledDeps: [],
   devDeps: [
-    "@pepperize/projen-awscdk-construct",
+    "@pepperize/projen-awscdk-construct@~0.0.730",
     "@types/aws-lambda",
     "@types/sinon",
     "aws-lambda",

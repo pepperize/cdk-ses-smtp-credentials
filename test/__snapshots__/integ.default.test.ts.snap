@@ -2,6 +2,130 @@
 
 exports[`integ.default Should match snapshot 1`] = `
 Object {
+  "Mappings": Object {
+    "LatestNodeRuntimeMap": Object {
+      "af-south-1": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-east-1": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-northeast-1": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-northeast-2": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-northeast-3": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-south-1": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-south-2": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-1": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-2": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-3": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-4": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-5": Object {
+        "value": "nodejs20.x",
+      },
+      "ap-southeast-7": Object {
+        "value": "nodejs20.x",
+      },
+      "ca-central-1": Object {
+        "value": "nodejs20.x",
+      },
+      "ca-west-1": Object {
+        "value": "nodejs20.x",
+      },
+      "cn-north-1": Object {
+        "value": "nodejs18.x",
+      },
+      "cn-northwest-1": Object {
+        "value": "nodejs18.x",
+      },
+      "eu-central-1": Object {
+        "value": "nodejs20.x",
+      },
+      "eu-central-2": Object {
+        "value": "nodejs20.x",
+      },
+      "eu-isoe-west-1": Object {
+        "value": "nodejs18.x",
+      },
+      "eu-north-1": Object {
+        "value": "nodejs20.x",
+      },
+      "eu-south-1": Object {
+        "value": "nodejs20.x",
+      },
+      "eu-south-2": Object {
+        "value": "nodejs20.x",
+      },
+      "eu-west-1": Object {
+        "value": "nodejs20.x",
+      },
+      "eu-west-2": Object {
+        "value": "nodejs20.x",
+      },
+      "eu-west-3": Object {
+        "value": "nodejs20.x",
+      },
+      "il-central-1": Object {
+        "value": "nodejs20.x",
+      },
+      "me-central-1": Object {
+        "value": "nodejs20.x",
+      },
+      "me-south-1": Object {
+        "value": "nodejs20.x",
+      },
+      "mx-central-1": Object {
+        "value": "nodejs20.x",
+      },
+      "sa-east-1": Object {
+        "value": "nodejs20.x",
+      },
+      "us-east-1": Object {
+        "value": "nodejs20.x",
+      },
+      "us-east-2": Object {
+        "value": "nodejs20.x",
+      },
+      "us-gov-east-1": Object {
+        "value": "nodejs18.x",
+      },
+      "us-gov-west-1": Object {
+        "value": "nodejs18.x",
+      },
+      "us-iso-east-1": Object {
+        "value": "nodejs18.x",
+      },
+      "us-iso-west-1": Object {
+        "value": "nodejs18.x",
+      },
+      "us-isob-east-1": Object {
+        "value": "nodejs18.x",
+      },
+      "us-west-1": Object {
+        "value": "nodejs20.x",
+      },
+      "us-west-2": Object {
+        "value": "nodejs20.x",
+      },
+    },
+  },
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
@@ -83,7 +207,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "eb5b005c858404ea0c8f68098ed5dcdf5340e02461f149751d10f59c210d5ef8.zip",
+          "S3Key": "2819175352ad1ce0dae768e83fc328fb70fb5f10b4a8ff0ccbcb791f02b0716d.zip",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -92,7 +216,16 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
+        "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
     },
@@ -167,7 +300,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "4b0311836178e83d88a02c0c8b057979a3b8444fc19ceb3803bed1d5014a5266.zip",
+          "S3Key": "681d284a27fcbbccf41227929a9c13895a5859749b289f961ca68f3b8d47d137.zip",
         },
         "Description": "src/provider/credentials-handler.lambda.ts",
         "Environment": Object {
@@ -182,7 +315,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs18.x",
+        "Runtime": "nodejs22.x",
         "Timeout": 60,
       },
       "Type": "AWS::Lambda::Function",
@@ -291,7 +424,7 @@ Object {
           "S3Bucket": Object {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "e7c95e1a12d903d913ebdd526c735f1ac58b2024882a5562110221fe685ebe85.zip",
+          "S3Key": "8ba5ee0003de28bf8e4a4fc7e1821c881abd3a80657825533ed1c301bec7e74a.zip",
         },
         "Description": "AWS CDK resource provider framework - onEvent (SesSmtpCredentialsIntegrationTest/cdk-ses-smtp-credentials.CredentialsProvider/ses-smtp-credentials-provider)",
         "Environment": Object {
@@ -311,7 +444,15 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": Object {
+          "Fn::FindInMap": Array [
+            "LatestNodeRuntimeMap",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            "value",
+          ],
+        },
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
