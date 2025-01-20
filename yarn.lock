@@ -2497,9 +2497,9 @@ eslint-plugin-import@^2.28.1:
     tsconfig-paths "^3.15.0"
 
 eslint-plugin-prettier@^5.0.0:
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.2.2.tgz#d1f068f65dc8490f102eda21d1f4cd150c205211"
-  integrity sha512-1yI3/hf35wmlq66C8yOyrujQnel+v5l1Vop5Cl2I6ylyNTT1JbuUUnV3/41PzwTzcyDp/oF0jWE3HXvcH5AQOQ==
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.2.3.tgz#c4af01691a6fa9905207f0fbba0d7bea0902cce5"
+  integrity sha512-qJ+y0FfCp/mQYQ/vWQ3s7eUlFEL4PyKfAJxsnYTJ4YT73nsJBWqmEpFryxV9OeUiqmsTsYJ5Y+KDNaeP31wrRw==
   dependencies:
     prettier-linter-helpers "^1.0.0"
     synckit "^0.9.1"
@@ -4117,9 +4117,9 @@ jsii-rosetta@~5.6.0:
     yargs "^17.7.2"
 
 jsii@~5.6.0:
-  version "5.6.6"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.6.6.tgz#2f8e5fafc2fccd6ab89383d4ac97921bcc31566d"
-  integrity sha512-6YBsE7uDEX5OeeU2tBGWPFBWcAiX0QZqrHey7PeYJ+XpG+QWDosIg5F0qUNv/+yLajMsHOFDgMheHwPvr94uxA==
+  version "5.6.7"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.6.7.tgz#f5657b3ce186b134f4f4689faddb6a5fdcec46cc"
+  integrity sha512-IvhTjGPnam1VrP6WiXX0Pl1990qfLt07M1o0Sg8y5yJ4lv/N2dsbE/aeMPPIP2VN8NZfu5g2u5PCUPYGCjrhsA==
   dependencies:
     "@jsii/check-node" "1.106.0"
     "@jsii/spec" "^1.106.0"
