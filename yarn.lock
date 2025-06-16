@@ -4175,9 +4175,9 @@ jsii-diff@^1.89.0:
     yargs "^16.2.0"
 
 jsii-docgen@^10.5.0:
-  version "10.7.3"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.7.3.tgz#9b67533c77c6bd79a674c3a289f0d5142b776571"
-  integrity sha512-dHDfJUcM0mxg2iACikSUTk8lv09xW7Oa50lKNduF13yPUJJ0ay9XMNpTDAX+M6V7t8uY/vv32tj4fBIIHJ6Njg==
+  version "10.7.5"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.7.5.tgz#3a6d850d665866d51d1895e73a8ca3dc69e0ca8d"
+  integrity sha512-XCYz7grFe7VzcMMfg2cCv4W0AmsdQUoKapmVuanZ1oLWjQk0j/2FuCLlaGL9NszfeGsg8R5pzMM8QTDhQRGgAw==
   dependencies:
     "@jsii/spec" "^1.112.0"
     case "^1.6.3"
@@ -4185,7 +4185,7 @@ jsii-docgen@^10.5.0:
     glob "^8.1.0"
     glob-promise "^6.0.7"
     jsii-reflect "^1.112.0"
-    semver "^7.7.1"
+    semver "^7.7.2"
     yargs "^16.2.0"
 
 jsii-pacmak@^1.89.0:
