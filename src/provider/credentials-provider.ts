@@ -1,6 +1,6 @@
 import { Duration, Lazy, Stack } from "aws-cdk-lib";
 import { IUser, PolicyStatement } from "aws-cdk-lib/aws-iam";
-import { RetentionDays } from "aws-cdk-lib/aws-logs";
+import { LogGroup, RetentionDays } from "aws-cdk-lib/aws-logs";
 import { ISecret } from "aws-cdk-lib/aws-secretsmanager";
 import { Provider } from "aws-cdk-lib/custom-resources";
 import { Construct } from "constructs";
@@ -48,12 +48,16 @@ export class CredentialsProvider extends Construct {
           actions: ["secretsmanager:PutSecretValue"],
         }),
       ],
-      logRetention: RetentionDays.ONE_MONTH,
+      logGroup: new LogGroup(this, "ses-smtp-credentials-handler-logs", {
+        retention: RetentionDays.ONE_MONTH,
+      }),
     });
 
     const provider = new Provider(this, "ses-smtp-credentials-provider", {
       onEventHandler: onEvent,
-      logRetention: RetentionDays.ONE_DAY, // default is INFINITE
+      logGroup: new LogGroup(this, "ses-smtp-credentials-provider-logs", {
+        retention: RetentionDays.ONE_DAY, // default is INFINITE
+      }),
     });
 
     this.serviceToken = provider.serviceToken;
