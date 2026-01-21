@@ -7,6 +7,10 @@ import { SMTP_REGIONS } from "./provider/ses-smtp-regions";
 
 export interface SesSmtpCredentialsProps {
   /**
+   * The region of SES endpoint to use. Defaults to stack region.
+   */
+  readonly region?: string;
+  /**
    * The user for which to create an AWS Access Key and to generate the smtp password. If omitted a user will be created.
    */
   readonly user?: iam.IUser;
@@ -62,7 +66,7 @@ export class SesSmtpCredentials extends Construct {
   public constructor(scope: Construct, id: string, props: SesSmtpCredentialsProps) {
     super(scope, id);
 
-    const region = Stack.of(this).region;
+    const region = props.region ?? Stack.of(this).region;
     if (!SMTP_REGIONS.includes(region)) {
       Annotations.of(this).addWarning(
         `AWS SES Smtp Endpoint is not available in region ${region}\n see https://docs.aws.amazon.com/general/latest/gr/ses.html`,
@@ -93,7 +97,7 @@ export class SesSmtpCredentials extends Construct {
         description: `SES Smtp Credentials (username, password) for ${user.userName}`,
       });
 
-    const provider = CredentialsProvider.getOrCreate(this);
+    const provider = CredentialsProvider.getOrCreate(this, { region: region });
     provider.grant(user, this.secret);
 
     const customResource = new CustomResource(this, "Lambda", {
