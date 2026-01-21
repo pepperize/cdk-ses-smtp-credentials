@@ -7,7 +7,7 @@ import * as sinon from "sinon";
 describe("provider.credentials-handler.lambda", () => {
   jest.setTimeout(60_000);
   console.log = jest.fn();
-  process.env.AWS_DEFAULT_REGION = "us-east-1";
+  process.env.SES_REGION = "us-east-1";
 
   let handler: (event: OnEventRequest) => Promise<OnEventResponse | undefined>;
   beforeEach(async () => {

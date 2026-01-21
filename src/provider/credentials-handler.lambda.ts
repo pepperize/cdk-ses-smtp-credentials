@@ -18,7 +18,7 @@ export async function handler(event: OnEventRequest): Promise<OnEventResponse | 
     const secretId = event.ResourceProperties.SecretId;
     const userNameSecretKey = event.ResourceProperties.UserNameSecretKey;
     const passwordSecretKey = event.ResourceProperties.PasswordSecretKey;
-    const region = process.env.AWS_DEFAULT_REGION as string;
+    const region = process.env.SES_REGION as string;
     const iam = new AWS.IAM();
     const secretsManager = new AWS.SecretsManager();
 
