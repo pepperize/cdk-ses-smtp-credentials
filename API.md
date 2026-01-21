@@ -155,6 +155,7 @@ const sesSmtpCredentialsProps: SesSmtpCredentialsProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.passwordSecretKey">passwordSecretKey</a></code> | <code>string</code> | Optional, the key name to use in the secret to write the password to (defaults to Credentials.PASSWORD). |
+| <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.region">region</a></code> | <code>string</code> | The region of SES endpoint to use. |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.secret">secret</a></code> | <code>aws-cdk-lib.aws_secretsmanager.ISecret</code> | Optional, an SecretsManager secret to write the AWS SES Smtp credentials to. |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.user">user</a></code> | <code>aws-cdk-lib.aws_iam.IUser</code> | The user for which to create an AWS Access Key and to generate the smtp password. |
 | <code><a href="#@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.userName">userName</a></code> | <code>string</code> | Optional, a username to create a new user if no existing user is given. |
@@ -171,6 +172,20 @@ public readonly passwordSecretKey: string;
 - *Type:* string
 
 Optional, the key name to use in the secret to write the password to (defaults to Credentials.PASSWORD).
+
+---
+
+##### `region`<sup>Optional</sup> <a name="region" id="@pepperize/cdk-ses-smtp-credentials.SesSmtpCredentialsProps.property.region"></a>
+
+```typescript
+public readonly region: string;
+```
+
+- *Type:* string
+
+The region of SES endpoint to use.
+
+Defaults to stack region.
 
 ---
 
