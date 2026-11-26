@@ -44,4 +44,18 @@ describe("CredentialsProvider", () => {
     expect(capture.asArray()[0].Resource).toHaveLength(1);
     expect(capture.asArray()[1].Resource).toHaveLength(1);
   });
+  it("Should use nodejs26.x runtime for the handler", () => {
+    // Given
+    const stack = new Stack();
+
+    // When
+    CredentialsProvider.getOrCreate(stack);
+
+    // Then
+    const template = Template.fromStack(stack);
+    template.hasResourceProperties("AWS::Lambda::Function", {
+      Handler: "index.handler",
+      Runtime: "nodejs26.x",
+    });
+  });
 });
