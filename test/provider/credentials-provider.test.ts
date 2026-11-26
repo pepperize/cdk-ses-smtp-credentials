@@ -1,6 +1,7 @@
 import { Stack } from "aws-cdk-lib";
 import { Capture, Match, Template } from "aws-cdk-lib/assertions";
 import { User } from "aws-cdk-lib/aws-iam";
+import { CfnKey, Key } from "aws-cdk-lib/aws-kms";
 import { Secret } from "aws-cdk-lib/aws-secretsmanager";
 import { CredentialsProvider } from "../../src/provider/credentials-provider";
 
@@ -56,6 +57,34 @@ describe("CredentialsProvider", () => {
     template.hasResourceProperties("AWS::Lambda::Function", {
       Handler: "index.handler",
       Runtime: "nodejs26.x",
+    });
+  });
+  it("Should grant encrypt on the secret's kms key", () => {
+    // Given
+    const stack = new Stack();
+
+    const user = new User(stack, "User");
+    const key = new Key(stack, "Key");
+    const secret = new Secret(stack, "Secret", { encryptionKey: key });
+
+    const provider = CredentialsProvider.getOrCreate(stack);
+
+    // When
+    provider.grant(user, secret);
+
+    // Then
+    const template = Template.fromStack(stack);
+    template.hasResourceProperties("AWS::IAM::Policy", {
+      PolicyName: Match.stringLikeRegexp("sessmtpcredentialshandler.*DefaultPolicy"),
+      PolicyDocument: {
+        Statement: Match.arrayWith([
+          Match.objectLike({
+            Action: Match.arrayWith(["kms:Encrypt", "kms:GenerateDataKey*"]),
+            Effect: "Allow",
+            Resource: { "Fn::GetAtt": [stack.getLogicalId(key.node.defaultChild as CfnKey), "Arn"] },
+          }),
+        ]),
+      },
     });
   });
 });
