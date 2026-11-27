@@ -26,6 +26,10 @@ export interface SesSmtpCredentialsProps {
    * Optional, the key name to use in the secret to write the password to (defaults to Credentials.PASSWORD)
    */
   readonly passwordSecretKey?: string;
+  /**
+   * Optional, the region of the AWS SES Smtp endpoint to calculate the password for (defaults to the stack's region)
+   */
+  readonly region?: string;
 }
 
 /**
@@ -62,7 +66,7 @@ export class SesSmtpCredentials extends Construct {
   public constructor(scope: Construct, id: string, props: SesSmtpCredentialsProps) {
     super(scope, id);
 
-    const region = Stack.of(this).region;
+    const region = props.region ?? Stack.of(this).region;
     if (!SMTP_REGIONS.includes(region)) {
       Annotations.of(this).addWarning(
         `AWS SES Smtp Endpoint is not available in region ${region}\n see https://docs.aws.amazon.com/general/latest/gr/ses.html`,
@@ -103,6 +107,7 @@ export class SesSmtpCredentials extends Construct {
         SecretId: this.secret.secretArn,
         UserNameSecretKey: props.userNameSecretKey,
         PasswordSecretKey: props.passwordSecretKey,
+        SesRegion: props.region,
       },
     } as CustomResourceProps);
     customResource.node.addDependency(user);
