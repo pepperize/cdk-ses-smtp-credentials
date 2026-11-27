@@ -3,11 +3,12 @@ import * as SDK from "aws-sdk";
 import { PutSecretValueRequest } from "aws-sdk/clients/secretsmanager";
 import * as AWS from "aws-sdk-mock";
 import * as sinon from "sinon";
+import { calculateSesSmtpPassword } from "../../src/provider/calculate-ses-smtp-password";
 
 describe("provider.credentials-handler.lambda", () => {
   jest.setTimeout(60_000);
   console.log = jest.fn();
-  process.env.SES_REGION = "us-east-1";
+  process.env.AWS_DEFAULT_REGION = "us-east-1";
 
   let handler: (event: OnEventRequest) => Promise<OnEventResponse | undefined>;
   beforeEach(async () => {
@@ -76,5 +77,43 @@ describe("provider.credentials-handler.lambda", () => {
         }),
       ),
     );
+  });
+
+  it("Should derive the smtp password for the region given as resource property", async () => {
+    // Given
+    const secretAccessKey = "dhSgJJyAs+2z19oLOVkwBrE6GkdNQD5fL5Dou5Tb";
+    AWS.mock(
+      "IAM",
+      "createAccessKey",
+      sinon.fake.resolves({
+        AccessKey: {
+          UserName: "TestUser",
+          AccessKeyId: "access-key-id-1234",
+          SecretAccessKey: secretAccessKey,
+          Status: "Active",
+        },
+      }),
+    );
+    const putSecretValueFake = sinon.fake.resolves({});
+    AWS.mock("SecretsManager", "putSecretValue", putSecretValueFake);
+
+    const request = {
+      ...event,
+      RequestType: "Create",
+      ResourceProperties: {
+        ...event.ResourceProperties,
+        UserName: "TestUser",
+        SecretId: "secret-1234",
+        Region: "eu-west-1",
+      },
+    };
+
+    // When
+    await handler(request as OnEventRequest);
+
+    // Then
+    const secretString = JSON.parse(putSecretValueFake.firstArg.SecretString);
+    expect(secretString.password).toEqual(calculateSesSmtpPassword(secretAccessKey, "eu-west-1"));
+    expect(secretString.password).not.toEqual(calculateSesSmtpPassword(secretAccessKey, "us-east-1"));
   });
 });

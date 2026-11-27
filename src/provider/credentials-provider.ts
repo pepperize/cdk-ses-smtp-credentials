@@ -6,27 +6,17 @@ import { Provider } from "aws-cdk-lib/custom-resources";
 import { Construct } from "constructs";
 import { CredentialsHandlerFunction } from "./credentials-handler-function";
 
-/**
- * Props for CredentialsHandlerFunction
- */
-export interface CredentialsProviderProps {
-  /**
-   * The region of SES endpoint to use. Defaults to stack region.
-   */
-  region: string;
-}
-
 export class CredentialsProvider extends Construct {
   /**
    * Retrieve CredentialsProvider as stack singleton resource.
    *
    * https://github.com/aws/aws-cdk/issues/5023
    */
-  public static getOrCreate(scope: Construct, props: CredentialsProviderProps): CredentialsProvider {
+  public static getOrCreate(scope: Construct): CredentialsProvider {
     const stack = Stack.of(scope);
     const id = "cdk-ses-smtp-credentials.CredentialsProvider";
     const existing = stack.node.tryFindChild(id);
-    return (existing as CredentialsProvider) || new CredentialsProvider(stack, id, { region: props.region });
+    return (existing as CredentialsProvider) || new CredentialsProvider(stack, id);
   }
 
   public readonly serviceToken: string;
@@ -36,7 +26,7 @@ export class CredentialsProvider extends Construct {
   private userArns: string[] = [];
   private secretArns: string[] = [];
 
-  constructor(scope: Construct, id: string, props: CredentialsProviderProps) {
+  constructor(scope: Construct, id: string) {
     super(scope, id);
 
     // https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html
@@ -62,8 +52,6 @@ export class CredentialsProvider extends Construct {
       ],
       logRetention: RetentionDays.ONE_MONTH,
     });
-    // register ses-region for auto-generated lambda function
-    onEvent.addEnvironment("SES_REGION", props.region, { removeInEdge: true });
 
     const provider = new Provider(this, "ses-smtp-credentials-provider", {
       onEventHandler: this.onEvent,

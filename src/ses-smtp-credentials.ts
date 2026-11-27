@@ -7,7 +7,9 @@ import { SMTP_REGIONS } from "./provider/ses-smtp-regions";
 
 export interface SesSmtpCredentialsProps {
   /**
-   * The region of SES endpoint to use. Defaults to stack region.
+   * Optional, the region of the SES endpoint to calculate the smtp password for.
+   *
+   * @default - the stack's region
    */
   readonly region?: string;
   /**
@@ -97,7 +99,7 @@ export class SesSmtpCredentials extends Construct {
         description: `SES Smtp Credentials (username, password) for ${user.userName}`,
       });
 
-    const provider = CredentialsProvider.getOrCreate(this, { region: region });
+    const provider = CredentialsProvider.getOrCreate(this);
     provider.grant(user, this.secret);
 
     const customResource = new CustomResource(this, "Lambda", {
@@ -107,6 +109,7 @@ export class SesSmtpCredentials extends Construct {
         SecretId: this.secret.secretArn,
         UserNameSecretKey: props.userNameSecretKey,
         PasswordSecretKey: props.passwordSecretKey,
+        Region: region,
       },
     } as CustomResourceProps);
     customResource.node.addDependency(user);

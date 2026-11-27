@@ -17,6 +17,9 @@ exports[`integ.default Should match snapshot 1`] = `
         "User00B015A1",
       ],
       "Properties": {
+        "Region": {
+          "Ref": "AWS::Region",
+        },
         "SecretId": {
           "Ref": "CredentialsSecret40F8BB41",
         },
@@ -168,7 +171,7 @@ exports[`integ.default Should match snapshot 1`] = `
           "S3Bucket": {
             "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
           },
-          "S3Key": "d4036612968ecda9a7f201be60b4921e0c59e17d8b5e43e5be068bfc5c885d03.zip",
+          "S3Key": "2797129253ef95ce1a0ae9a6556df1470a12df7b043e03bca7f6efa893841475.zip",
         },
         "Description": "src/provider/credentials-handler.lambda.ts",
         "Environment": {

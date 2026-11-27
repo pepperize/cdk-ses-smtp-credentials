@@ -13,7 +13,7 @@ describe("CredentialsProvider", () => {
     const user = new User(stack, "User");
     const secret = new Secret(stack, "Secret");
 
-    const provider = CredentialsProvider.getOrCreate(stack, { region: "us-east-1" });
+    const provider = CredentialsProvider.getOrCreate(stack);
     provider.grant(user, secret);
 
     // When
@@ -29,7 +29,7 @@ describe("CredentialsProvider", () => {
     const user = new User(stack, "User");
     const secret = new Secret(stack, "Secret");
 
-    const provider = CredentialsProvider.getOrCreate(stack, { region: "us-east-1" });
+    const provider = CredentialsProvider.getOrCreate(stack);
     provider.grant(user, secret);
 
     // When
