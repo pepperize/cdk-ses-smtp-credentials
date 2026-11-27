@@ -87,4 +87,21 @@ describe("CredentialsProvider", () => {
       },
     });
   });
+  it("Should use log groups instead of deprecated log retention", () => {
+    // Given
+    const stack = new Stack();
+
+    // When
+    CredentialsProvider.getOrCreate(stack);
+
+    // Then
+    const template = Template.fromStack(stack);
+    template.resourceCountIs("Custom::LogRetention", 0);
+    template.hasResourceProperties("AWS::Logs::LogGroup", { RetentionInDays: 30 });
+    template.hasResourceProperties("AWS::Logs::LogGroup", { RetentionInDays: 1 });
+    template.hasResourceProperties("AWS::Lambda::Function", {
+      Description: "src/provider/credentials-handler.lambda.ts",
+      LoggingConfig: { LogGroup: Match.anyValue() },
+    });
+  });
 });
