@@ -3,22 +3,31 @@ import { awscdk, javascript } from "projen";
 const project = new AwsCdkConstructLibrary({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
-  cdkVersion: "2.173.2",
+  cdkVersion: "2.278.0",
+  jsiiVersion: "~6.0.0",
   name: "@pepperize/cdk-ses-smtp-credentials",
   description: "Generate SES smtp credentials for a given user and store the credentials in a SecretsManager Secret.",
   keywords: ["AWS", "CDK", "SES", "Smtp", "Credentials", "SecretsManager", "Secret", "Utilities"],
   repositoryUrl: "https://github.com/pepperize/cdk-ses-smtp-credentials.git",
 
   projenrcTs: true,
+  minNodeVersion: "22.13.0",
+  workflowNodeVersion: "24.x",
+  jestOptions: {
+    jestVersion: "^30",
+  },
+  packageManager: javascript.NodePackageManager.YARN_CLASSIC,
 
   lambdaOptions: {
-    runtime: awscdk.LambdaRuntime.NODEJS_22_X,
+    runtime: awscdk.LambdaRuntime.NODEJS_26_X,
   },
 
   deps: [],
   bundledDeps: [],
   devDeps: [
-    "@pepperize/projen-awscdk-construct@~0.0.730",
+    "@pepperize/projen-awscdk-construct@~0.1.1",
+    "@types/node@^22",
+    "typescript@~6.0",
     "@types/aws-lambda",
     "@types/sinon",
     "aws-lambda",
@@ -39,7 +48,6 @@ const project = new AwsCdkConstructLibrary({
     module: "pepperize_cdk_ses_smtp_credentials",
   },
   publishToMaven: {
-    mavenEndpoint: "https://s01.oss.sonatype.org",
     mavenGroupId: "com.pepperize",
     mavenArtifactId: "cdk-ses-smtp-credentials",
     javaPackage: "com.pepperize.cdk.ses_smtp_credentials",
@@ -49,6 +57,9 @@ const project = new AwsCdkConstructLibrary({
 });
 
 project.gitignore.exclude("cdk.out/");
+
+// handler tests use dynamic import(); jest needs vm modules for that
+project.testTask.env("NODE_OPTIONS", "--experimental-vm-modules");
 
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
 

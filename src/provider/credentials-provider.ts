@@ -21,6 +21,8 @@ export class CredentialsProvider extends Construct {
 
   public readonly serviceToken: string;
 
+  private readonly onEvent: CredentialsHandlerFunction;
+
   private userArns: string[] = [];
   private secretArns: string[] = [];
 
@@ -28,7 +30,7 @@ export class CredentialsProvider extends Construct {
     super(scope, id);
 
     // https://docs.aws.amazon.com/cdk/api/latest/docs/aws-lambda-nodejs-readme.html
-    const onEvent = new CredentialsHandlerFunction(this, "ses-smtp-credentials-handler", {
+    this.onEvent = new CredentialsHandlerFunction(this, "ses-smtp-credentials-handler", {
       timeout: Duration.minutes(1),
       initialPolicy: [
         new PolicyStatement({
@@ -54,7 +56,7 @@ export class CredentialsProvider extends Construct {
     });
 
     const provider = new Provider(this, "ses-smtp-credentials-provider", {
-      onEventHandler: onEvent,
+      onEventHandler: this.onEvent,
       logGroup: new LogGroup(this, "ses-smtp-credentials-provider-logs", {
         retention: RetentionDays.ONE_DAY, // default is INFINITE
       }),
@@ -66,5 +68,6 @@ export class CredentialsProvider extends Construct {
   public grant(user: IUser, secret: ISecret) {
     this.userArns.push(user.userArn);
     this.secretArns.push(secret.secretArn);
+    secret.encryptionKey?.grantEncrypt(this.onEvent);
   }
 }
